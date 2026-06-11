@@ -110,7 +110,7 @@ export default function Footer() {
             </p>
             <div className="text-[11px] text-nest-cream/40 tracking-wider space-y-1 font-light" style={{ fontFamily: "'Inter', sans-serif" }}>
               <p>19.1009° N, 72.8887° E</p>
-              <p>6th Floor Rooftop, Sakinaka, Mumbai</p>
+              <p>2nd Floor, Grand Pavilion, Peninsula Grand</p>
             </div>
           </div>
 

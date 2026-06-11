@@ -1,130 +1,88 @@
 "use client";
 
-import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
 import Magnetic from "@/components/Magnetic";
 
-gsap.registerPlugin(ScrollTrigger);
-
-const menuItems = [
+const platforms = [
   {
-    category: "Signature Cocktails",
-    items: [
-      {
-        name: "Waikiki Dream",
-        desc: "Dark rum, pineapple, passion fruit, island spices, coconut cream",
-        price: "₹850",
-        tag: "SIGNATURE",
-        tagColor: "bg-nest-gold text-nest-black",
-      },
-      {
-        name: "Maui Sunset",
-        desc: "Tequila, hibiscus, mango, chilli salt rim, golden float",
-        price: "₹780",
-        tag: "CHEF'S PICK",
-        tagColor: "bg-nest-teal text-nest-black",
-      },
-      {
-        name: "Pacific Storm",
-        desc: "Mezcal, cold brew, dark cacao, Okinawa black sugar, salted foam",
-        price: "₹820",
-        tag: null,
-        tagColor: "",
-      },
-      {
-        name: "Nest Negroni",
-        desc: "Aged gin, Campari, sweet vermouth, orange bitters, bamboo smoke",
-        price: "₹790",
-        tag: null,
-        tagColor: "",
-      },
-    ],
+    name: "Zomato",
+    description: "Browse our full menu, reviews & order online",
+    href: "https://www.zomato.com",
+    color: "bg-[#E23744]",
+    textColor: "text-white",
+    icon: (
+      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M14.191 0H9.809C4.389 0 0 4.389 0 9.809v4.382C0 19.611 4.389 24 9.809 24h4.382C19.611 24 24 19.611 24 14.191V9.809C24 4.389 19.611 0 14.191 0zm-1.02 17.78H6.53v-1.404h5.19L6.53 9.122V7.72h6.641v1.404H7.933l5.238 7.254v1.402zm4.29 0h-1.61V7.72h1.61v10.06z"/>
+      </svg>
+    ),
   },
   {
-    category: "Island Bites",
-    items: [
-      {
-        name: "Ahi Poke Bowl",
-        desc: "Fresh yellowfin tuna, jasmine rice, edamame, pickled radish, sriracha aioli",
-        price: "₹680",
-        tag: "BESTSELLER",
-        tagColor: "bg-nest-gold text-nest-black",
-      },
-      {
-        name: "Loco Moco Nest Style",
-        desc: "Wagyu patty, truffle onsen egg, demi-glace, crispy shallots on saffron rice",
-        price: "₹980",
-        tag: "PREMIUM",
-        tagColor: "bg-nest-amber-light text-nest-black",
-      },
-      {
-        name: "Tiradito Crudo",
-        desc: "Sea bass, aji amarillo leche de tigre, micro herbs, crispy quinoa",
-        price: "₹750",
-        tag: null,
-        tagColor: "",
-      },
-      {
-        name: "Bali Chicken Satay",
-        desc: "Lemongrass marinated thigh, peanut sambal, pickled papaya, kaffir lime",
-        price: "₹520",
-        tag: null,
-        tagColor: "",
-      },
-    ],
+    name: "Swiggy",
+    description: "Order now with fast delivery to your door",
+    href: "https://www.swiggy.com",
+    color: "bg-[#FC8019]",
+    textColor: "text-white",
+    icon: (
+      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 4.8c3.975 0 7.2 3.225 7.2 7.2s-3.225 7.2-7.2 7.2S4.8 15.975 4.8 12 8.025 4.8 12 4.8zm0 2.4a4.8 4.8 0 100 9.6 4.8 4.8 0 000-9.6z"/>
+      </svg>
+    ),
+  },
+  {
+    name: "Google",
+    description: "View ratings, photos & explore our menu",
+    href: "https://www.google.com/maps/search/The+Nest+at+Waikiki",
+    color: "bg-white",
+    textColor: "text-nest-cream",
+    icon: (
+      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+        <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+        <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+        <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+      </svg>
+    ),
   },
 ];
 
-const featuredCocktail = {
-  name: "Waikiki Dream",
-  ingredients: ["Dark Rum", "Pineapple Juice", "Passion Fruit", "Island Spices", "Coconut Cream"],
-  story:
-    "Our liquid soul. The Waikiki Dream is more than a drink — it is the essence of our island-inspired identity. Rich, aromatic, and deeply refreshing.",
-};
+const inspirations = [
+  {
+    label: "Japanese Craft",
+    description: "Precision-driven technique, umami-forward flavours, and a reverence for the finest ingredients.",
+    image: "/food/DSC09339.jpg",
+  },
+  {
+    label: "Continental Soul",
+    description: "Rich, layered, and comforting — Continental classics reimagined for an elevated rooftop setting.",
+    image: "/food/DSC00887.jpg",
+  },
+  {
+    label: "Tiki Mixology",
+    description: "Bold tropical pours crafted with aged spirits, house-made syrups, and island flair at the bar.",
+    image: "/food/DSC09602.jpg",
+  },
+];
 
 export default function Menu() {
-  const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    if (!sectionRef.current) return;
-    const ctx = gsap.context(() => {
-      gsap.from(".menu-item-row", {
-        opacity: 0,
-        y: 20,
-        duration: 0.6,
-        stagger: 0.08,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: ".menu-lists-container",
-          start: "top 80%",
-        },
-      });
-    }, sectionRef);
-    return () => ctx.revert();
-  }, []);
-
   return (
     <section
-      ref={sectionRef}
       id="menu"
       className="relative section-padding bg-nest-black overflow-hidden"
     >
-      {/* Background Soft Glow */}
       <div className="absolute top-1/3 left-0 w-96 h-96 rounded-full bg-nest-gold/5 blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 right-0 w-[30vw] h-[30vw] rounded-full bg-nest-teal/5 blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="section-grid">
-          
+
           {/* Sticky Left Sidebar */}
           <div className="section-sidebar flex flex-col justify-start lg:pt-2">
             <div className="flex items-center gap-4 lg:flex-col lg:items-start lg:gap-3">
               <span className="font-cormorant text-5xl sm:text-6xl font-light text-nest-gold leading-none">03</span>
               <div className="w-12 h-[1px] bg-nest-gold/30 lg:w-[1px] lg:h-12" />
-              <span 
-                className="text-nest-cream/40 text-[9px] sm:text-[10px] tracking-[0.4em] uppercase whitespace-nowrap lg:transform lg:rotate-90 lg:origin-left lg:translate-x-[6px] lg:translate-y-[20px] font-medium" 
+              <span
+                className="text-nest-cream/40 text-[9px] sm:text-[10px] tracking-[0.4em] uppercase whitespace-nowrap lg:transform lg:rotate-90 lg:origin-left lg:translate-x-[6px] lg:translate-y-[20px] font-medium"
                 style={{ fontFamily: "'Inter', sans-serif" }}
               >
                 THE MENU
@@ -134,7 +92,7 @@ export default function Menu() {
 
           {/* Right Main Content */}
           <div>
-            
+
             {/* Header */}
             <div className="max-w-xl mb-16">
               <motion.h2
@@ -146,7 +104,7 @@ export default function Menu() {
                 style={{ fontFamily: "'Cormorant Garamond', serif" }}
               >
                 Crafted with <br />
-                <span className="text-gold-gradient italic font-light">Tropical Island Soul</span>
+                <span className="text-gold-gradient italic font-light">Intention & Soul</span>
               </motion.h2>
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
@@ -156,141 +114,123 @@ export default function Menu() {
                 className="text-nest-cream/60 text-sm sm:text-base leading-relaxed font-light"
                 style={{ fontFamily: "'Inter', sans-serif" }}
               >
-                Explore a dual-heritage menu that fuses vibrant Japanese culinary technique with robust Peruvian flavors, paired with hand-crafted signature mixology.
+                Our kitchen draws from two rich culinary worlds — the disciplined artistry of Japanese cooking and the hearty elegance of Continental cuisine — united by a shared belief that every bite should be memorable. Each dish is seasonal, considered, and made to complement an evening above the skyline.
               </motion.p>
             </div>
 
-            {/* Featured Cocktail Card */}
-            <motion.div
-              initial={{ opacity: 0, y: 35 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1.0, ease: [0.22, 1, 0.36, 1] }}
-              className="relative mb-20 overflow-hidden rounded-3xl border border-nest-gold/15 glass-card shadow-[0_15px_35px_rgba(36,30,21,0.03)]"
-            >
-              <div className="grid lg:grid-cols-12 gap-0 items-stretch">
-                
-                {/* Featured Image */}
-                <div className="lg:col-span-5 relative min-h-[320px] lg:min-h-0 overflow-hidden group">
-                  <Image
-                    src="/food/DSC00483.jpg"
-                    alt="Waikiki Dream Featured Cocktail"
-                    fill
-                    className="object-cover transition-transform duration-1000 ease-out group-hover:scale-110"
-                  />
-                  {/* Subtle fade */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent to-nest-black/40 hidden lg:block" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-nest-black/40 to-transparent lg:hidden" />
-                </div>
+            {/* Inspiration Cards */}
+            <div className="grid md:grid-cols-3 gap-6 mb-20">
+              {inspirations.map((item, i) => (
+                <motion.div
+                  key={item.label}
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-40px" }}
+                  transition={{ duration: 0.8, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] }}
+                  className="group relative overflow-hidden rounded-3xl border border-nest-gold/10 hover:border-nest-gold/25 transition-all duration-500"
+                >
+                  {/* Image */}
+                  <div className="relative h-56 overflow-hidden">
+                    <Image
+                      src={item.image}
+                      alt={item.label}
+                      fill
+                      className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-nest-black/80 via-nest-black/20 to-transparent z-10" />
+                    <div className="absolute bottom-4 left-5 z-20">
+                      <span
+                        className="text-nest-gold text-[9px] tracking-[0.3em] uppercase font-semibold"
+                        style={{ fontFamily: "'Inter', sans-serif" }}
+                      >
+                        {item.label}
+                      </span>
+                    </div>
+                  </div>
 
-                {/* Featured Detail */}
-                <div className="lg:col-span-7 p-8 sm:p-12 flex flex-col justify-center relative">
-                  <div className="absolute top-6 right-6">
-                    <span 
-                      className="bg-nest-gold/15 text-nest-gold text-[9px] tracking-widest px-3 py-1 uppercase font-medium rounded-full"
+                  {/* Text */}
+                  <div className="glass-card px-6 py-5">
+                    <p
+                      className="text-nest-cream/65 text-xs sm:text-sm leading-relaxed font-light"
                       style={{ fontFamily: "'Inter', sans-serif" }}
                     >
-                      Featured Signature
-                    </span>
+                      {item.description}
+                    </p>
                   </div>
 
-                  <p className="text-nest-gold text-[10px] tracking-[0.25em] uppercase mb-2 font-medium"
-                    style={{ fontFamily: "'Inter', sans-serif" }}>
-                    House Special
-                  </p>
-                  <h3 className="font-cormorant text-4xl sm:text-5xl font-light text-nest-cream mb-4"
-                    style={{ fontFamily: "'Cormorant Garamond', serif" }}>
-                    {featuredCocktail.name}
-                  </h3>
-                  <p className="text-nest-cream/65 leading-relaxed mb-6 font-light text-xs sm:text-sm"
-                    style={{ fontFamily: "'Inter', sans-serif" }}>
-                    {featuredCocktail.story}
-                  </p>
-
-                  {/* Ingredients capsule list */}
-                  <div className="flex flex-wrap gap-2 mb-8">
-                    {featuredCocktail.ingredients.map((ing) => (
-                      <span key={ing}
-                        className="bg-nest-dark border border-nest-gold/10 text-nest-cream/70 text-[10px] px-3 py-1 rounded-full tracking-wider"
-                        style={{ fontFamily: "'Inter', sans-serif" }}>
-                        {ing}
-                      </span>
-                    ))}
-                  </div>
-
-                  <p className="font-cormorant text-3xl text-gold-gradient font-light"
-                    style={{ fontFamily: "'Cormorant Garamond', serif" }}>
-                    ₹850
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Menu Sections Grid */}
-            <div className="menu-lists-container grid lg:grid-cols-2 gap-12 lg:gap-16">
-              {menuItems.map((sec) => (
-                <div key={sec.category} className="flex flex-col">
-                  <h3
-                    className="font-cormorant text-2xl sm:text-3xl font-light text-nest-cream mb-8 pb-3 border-b border-nest-gold/15"
-                    style={{ fontFamily: "'Cormorant Garamond', serif" }}
-                  >
-                    {sec.category}
-                  </h3>
-
-                  <div className="flex flex-col gap-6">
-                    {sec.items.map((item) => (
-                      <div
-                        key={item.name}
-                        className="menu-item-row flex flex-col group pb-5 border-b border-nest-gold/5 last:border-0 cursor-none"
-                      >
-                        <div className="flex justify-between items-baseline gap-4 mb-2">
-                          <div className="flex items-center gap-3">
-                            <h4
-                              className="text-nest-cream group-hover:text-nest-gold transition-colors duration-300 text-sm sm:text-base font-medium tracking-wide"
-                              style={{ fontFamily: "'Inter', sans-serif" }}
-                            >
-                              {item.name}
-                            </h4>
-                            {item.tag && (
-                              <span 
-                                className={`text-[8px] tracking-[0.15em] px-2.5 py-0.5 uppercase font-semibold rounded-full border border-nest-gold/15 ${item.tagColor}`}
-                                style={{ fontFamily: "'Inter', sans-serif" }}
-                              >
-                                {item.tag}
-                              </span>
-                            )}
-                          </div>
-                          
-                          {/* Dot leader */}
-                          <div className="hidden sm:block flex-1 h-[1px] border-b border-dotted border-nest-gold/25 mx-2 transform translate-y-[-4px]" />
-
-                          <p
-                            className="text-nest-gold font-cormorant text-lg sm:text-xl font-light flex-shrink-0"
-                            style={{ fontFamily: "'Cormorant Garamond', serif" }}
-                          >
-                            {item.price}
-                          </p>
-                        </div>
-                        <p
-                          className="text-nest-cream/45 text-xs font-light max-w-md"
-                          style={{ fontFamily: "'Inter', sans-serif" }}
-                        >
-                          {item.desc}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
+                  <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-nest-gold/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </motion.div>
               ))}
             </div>
 
-            {/* Bottom Booking Button */}
+            {/* View Full Menu Divider */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              className="flex items-center gap-4 mb-10"
+            >
+              <div className="h-px flex-1 bg-nest-gold/10" />
+              <span
+                className="text-nest-cream/40 text-[9px] tracking-[0.4em] uppercase font-medium whitespace-nowrap"
+                style={{ fontFamily: "'Inter', sans-serif" }}
+              >
+                View the Full Menu
+              </span>
+              <div className="h-px flex-1 bg-nest-gold/10" />
+            </motion.div>
+
+            {/* Platform Links */}
+            <motion.div
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.1 }}
+              className="grid sm:grid-cols-3 gap-4 mb-16"
+            >
+              {platforms.map((p, i) => (
+                <motion.a
+                  key={p.name}
+                  href={p.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.1 + i * 0.08 }}
+                  whileHover={{ y: -4 }}
+                  className="group flex items-center gap-4 glass-card rounded-2xl px-6 py-5 border border-nest-gold/10 hover:border-nest-gold/30 hover:shadow-[0_12px_30px_rgba(81,9,9,0.06)] transition-all duration-300 cursor-none"
+                >
+                  <div className={`w-10 h-10 rounded-full ${p.color} flex items-center justify-center flex-shrink-0 shadow-sm ${p.textColor}`}>
+                    {p.icon}
+                  </div>
+                  <div>
+                    <p
+                      className="text-nest-cream text-sm font-semibold mb-0.5 group-hover:text-nest-gold transition-colors duration-300"
+                      style={{ fontFamily: "'Inter', sans-serif" }}
+                    >
+                      {p.name}
+                    </p>
+                    <p
+                      className="text-nest-cream/45 text-[10px] leading-snug font-light"
+                      style={{ fontFamily: "'Inter', sans-serif" }}
+                    >
+                      {p.description}
+                    </p>
+                  </div>
+                  <span className="ml-auto text-nest-gold/40 group-hover:text-nest-gold group-hover:translate-x-1 transition-all duration-300 text-sm">→</span>
+                </motion.a>
+              ))}
+            </motion.div>
+
+            {/* Book a Table CTA */}
             <motion.div
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="text-center mt-16"
+              className="text-center"
             >
               <Magnetic>
                 <button

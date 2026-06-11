@@ -32,29 +32,29 @@ const pillars = [
   {
     icon: <DineIcon />,
     title: "Dine",
-    subtitle: "Japanese × Peruvian",
+    subtitle: "Japanese + Continental",
     description:
-      "A culinary journey bridging the Pacific. From fresh yellowfin Ahi Poke to our signature Loco Moco twist, every dish is crafted to complement our elevated island spirit.",
-    highlights: ["Ahi Poke Bowl", "Loco Moco Twist", "Island Tapas", "Fusion Omakase"],
-    image: "/food/DSC00521.jpg",
+      "A culinary journey fusing Japanese precision with Continental elegance. Every dish is crafted to delight — from delicate Tebasake to silky Creamy Salmon under the open sky.",
+    highlights: ["Tebasake", "Treasure Pouch", "Furikake Prawns", "Prawn Tempura", "Creamy Salmon"],
+    image: "/food/DSC00887.jpg",
   },
   {
     icon: <SipIcon />,
     title: "Sip",
     subtitle: "Modern Tiki Mixology",
     description:
-      "Where classic Polynesian tiki culture meets cutting-edge liquid craft. Our mixologists pour works of art, featuring the legendary signature Waikiki Dream.",
-    highlights: ["Waikiki Dream", "Aged Tiki Classics", "Smoked Cocktails", "Mocktail Garden"],
-    image: "/food/DSC09621.jpg",
+      "Where classic Polynesian tiki culture meets cutting-edge liquid craft. Our mixologists pour works of art — bold, tropical, and unapologetically unforgettable.",
+    highlights: ["Powhiri Picante", "Island Grog", "Spicy Tropical Zombie", "Waikiki Grog 2.0"],
+    image: "/food/DSC09602.jpg",
   },
   {
     icon: <VibeIcon />,
     title: "Vibe",
-    subtitle: "Live Nights & Artistry",
+    subtitle: "DJ Nights & Artistry",
     description:
-      "As twilight sets over Mumbai, the rooftop transitions. Ambient live acoustics, flair bartending showdowns, and high-energy guest takeovers under the sky.",
-    highlights: ["Live Music Nights", "Flair Shake-Offs", "Guest Takeovers", "Tiki Masterclasses"],
-    image: "/interior/DSC01021.jpg",
+      "As twilight sets, the atmosphere ignites. Resident DJs, guest bar takeovers, and house grooves carry the night from golden hour all the way to afterhours.",
+    highlights: ["DJ Nights", "Guest Takeovers", "House Grooves", "Bar Takeovers"],
+    image: "/interior/DSC01049.jpg",
   },
 ];
 
@@ -104,7 +104,7 @@ export default function Experience() {
                 className="text-nest-cream/60 text-sm sm:text-base leading-relaxed font-light"
                 style={{ fontFamily: "'Inter', sans-serif" }}
               >
-                Select your vibe for the evening. Whether you come to savor curated Nikkei dishes, taste award-winning mixology, or immerse in weekly live music sessions.
+                Select your vibe for the evening. Whether you come to savour artisanal Japanese-Continental plates, taste signature tiki mixology, or lose yourself in a DJ night under the open sky.
               </motion.p>
             </div>
 

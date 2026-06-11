@@ -171,8 +171,8 @@ _Sent from thenestbywaikiki.com_`;
                         <span>Address</span>
                       </p>
                       <p className="leading-relaxed" style={{ fontFamily: "'Inter', sans-serif" }}>
-                        6th Floor, Peninsula Grand Hotel,<br />
-                        Sakinaka Junction, Andheri East,<br />
+                        2nd Floor, Grand Pavilion,<br />
+                        Peninsula Grand Hotel, Andheri East,<br />
                         Mumbai, Maharashtra 400072
                       </p>
                     </div>

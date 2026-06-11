@@ -9,9 +9,9 @@ import Magnetic from "@/components/Magnetic";
 const PARTICLES_COUNT = 30;
 
 const HERO_IMAGES = [
-  "/interior/DSC01064.jpg",
-  "/interior/DSC01039.jpg",
-  "/interior/DSC01017.jpg",
+  "/interior/DSC01031.jpg",
+  "/interior/DSC01049.jpg",
+  "/interior/DSC01057.jpg",
 ];
 
 export default function Hero() {
@@ -132,7 +132,7 @@ export default function Hero() {
                 style={{ fontFamily: "'Cormorant Garamond', serif" }}
               >
                 THE NEST <br />
-                <span className="text-gold-gradient italic font-light">BY WAIKIKI</span>
+                <span className="text-gold-gradient italic font-light">AT WAIKIKI</span>
               </motion.h1>
             </div>
 
@@ -144,7 +144,7 @@ export default function Hero() {
               className="text-nest-cream/60 text-sm sm:text-base max-w-xl leading-relaxed mb-10 font-light"
               style={{ fontFamily: "'Inter', sans-serif" }}
             >
-              Perched atop the Peninsula Grand Hotel in Andheri East. A high-fashion tropical sanctuary where Hawaiian soul meets Mumbai&rsquo;s electric city skyline under the stars.
+              Perched on the 2nd floor, Grand Pavilion, Peninsula Grand Hotel. A high-fashion tropical sanctuary where Hawaiian soul meets Mumbai&rsquo;s electric city skyline under the stars.
             </motion.p>
 
             {/* CTAs */}

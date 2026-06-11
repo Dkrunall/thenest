@@ -9,7 +9,7 @@ import Image from "next/image";
 gsap.registerPlugin(ScrollTrigger);
 
 const stats = [
-  { value: "6th", label: "Floor Location", sub: "Peninsula Grand Hotel" },
+  { value: "2nd", label: "Floor Location", sub: "Grand Pavilion, Peninsula Grand" },
   { value: "4.5★", label: "Guest Rating", sub: "Swiggy & Zomato" },
   { value: "360°", label: "Skyline Views", sub: "Mumbai City Horizon" },
   { value: "6PM", label: "Doors Open", sub: "Every night until 3:00 AM" },
@@ -79,8 +79,8 @@ export default function About() {
                   className="font-cormorant font-light text-[clamp(2rem,5vw,3.75rem)] leading-tight text-nest-cream mb-8"
                   style={{ fontFamily: "'Cormorant Garamond', serif" }}
                 >
-                  Above the City, <br />
-                  <span className="text-gold-gradient italic font-light">Below the Stars</span>
+                  Beneath the Skyline, <br />
+                  <span className="text-gold-gradient italic font-light">Beyond the Ordinary</span>
                 </motion.h2>
 
                 <motion.p
@@ -102,7 +102,7 @@ export default function About() {
                   className="text-nest-cream/60 leading-relaxed mb-12 text-sm sm:text-base font-light"
                   style={{ fontFamily: "'Inter', sans-serif" }}
                 >
-                  Perched on the 6th floor of the Peninsula Grand Hotel, our signature egg-shaped bar, artisanal design elements, and 360-degree skyline views create an atmosphere where every evening is an celebration of music, drinks, and fusion plates.
+                  Perched on the 2nd floor, Grand Pavilion, Peninsula Grand Hotel, our signature egg-shaped bar, artisanal design elements, and panoramic skyline views create an atmosphere where every evening is a celebration of music, drinks, and fusion plates.
                 </motion.p>
 
                 {/* Grid of Stats Cards */}
@@ -188,17 +188,19 @@ export default function About() {
           {Array.from({ length: 2 }).map((_, idx) => (
             <span key={idx} className="flex items-center gap-10 pr-10">
               {[
-                "Rooftop Escape",
+                "Rooftop Ambience",
                 "✦",
-                "Japanese × Peruvian Fusion",
+                "Golden Hour Gatherings",
                 "✦",
-                "Live Sunset Music",
+                "Modern Tiki Mixology",
                 "✦",
-                "Tiki Mixology Masterclasses",
+                "Beneath the Skyline, Beyond the Ordinary",
                 "✦",
-                "360° Skyline Views",
+                "Gourmet Dining Nights",
                 "✦",
-                "Curated Flair Bartending",
+                "Artisanal Food Experience",
+                "✦",
+                "Sunset to Afterhours",
                 "✦",
               ].map((item, i) => (
                 <span

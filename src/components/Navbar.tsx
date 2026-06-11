@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter, usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import Magnetic from "@/components/Magnetic";
 
@@ -10,9 +11,9 @@ const navLinks = [
   { label: "Story", href: "#about", image: "/interior/DSC01037.jpg" },
   { label: "Experience", href: "#experience", image: "/food/DSC00521.jpg" },
   { label: "Menu", href: "#menu", image: "/food/DSC00483.jpg" },
-  { label: "Gallery", href: "#gallery", image: "/interior/DSC01064.jpg" },
-  { label: "Events", href: "#events", image: "/interior/DSC01057.jpg" },
-  { label: "Bookings", href: "#reserve", image: "/interior/DSC01021.jpg" },
+  { label: "Gallery", href: "/gallery", image: "/interior/DSC01064.jpg" },
+  { label: "Blog", href: "/blog", image: "/interior/DSC01049.jpg" },
+  { label: "Bookings", href: "/book", image: "/interior/DSC01021.jpg" },
 ];
 
 export default function Navbar() {
@@ -21,6 +22,8 @@ export default function Navbar() {
   const [time, setTime] = useState("");
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const router = useRouter();
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -54,9 +57,15 @@ export default function Navbar() {
   const handleNavClick = (href: string) => {
     setMenuOpen(false);
     setHoveredIndex(null);
-    const el = document.querySelector(href);
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
+    if (href.startsWith("#")) {
+      if (pathname === "/") {
+        const el = document.querySelector(href);
+        if (el) el.scrollIntoView({ behavior: "smooth" });
+      } else {
+        router.push("/" + href);
+      }
+    } else {
+      router.push(href);
     }
   };
 
@@ -113,7 +122,7 @@ export default function Navbar() {
             {/* Quick Link: Book a table */}
             <Magnetic>
               <button
-                onClick={() => handleNavClick("#reserve")}
+                onClick={() => handleNavClick("/book")}
                 className="hidden sm:block btn-gold rounded-full text-[9px] tracking-[0.2em] px-4 py-2 shadow-[0_4px_15px_rgba(81,9,9,0.15)] hover:shadow-[0_8px_25px_rgba(81,9,9,0.25)] transition-all duration-300"
               >
                 Reserve Table
@@ -187,7 +196,7 @@ export default function Navbar() {
                       19.1009° N, 72.8887° E
                     </p>
                     <p className="text-[11px] text-nest-cream/40 font-light mt-0.5" style={{ fontFamily: "'Inter', sans-serif" }}>
-                      6th Floor Rooftop, Sakinaka, Mumbai
+                      2nd Floor, Grand Pavilion, Peninsula Grand
                     </p>
                   </div>
 
