@@ -36,7 +36,7 @@ const pillars = [
     description:
       "A culinary journey fusing Japanese precision with Continental elegance. Every dish is crafted to delight — from delicate Tebasake to silky Creamy Salmon under the open sky.",
     highlights: ["Tebasake", "Treasure Pouch", "Furikake Prawns", "Prawn Tempura", "Creamy Salmon"],
-    image: "/food/DSC00887.jpg",
+    image: "/food/DSC09517.jpg",
   },
   {
     icon: <SipIcon />,
@@ -45,7 +45,7 @@ const pillars = [
     description:
       "Where classic Polynesian tiki culture meets cutting-edge liquid craft. Our mixologists pour works of art — bold, tropical, and unapologetically unforgettable.",
     highlights: ["Powhiri Picante", "Island Grog", "Spicy Tropical Zombie", "Waikiki Grog 2.0"],
-    image: "/food/DSC09602.jpg",
+    image: "/food/DSC00887.jpg",
   },
   {
     icon: <VibeIcon />,
