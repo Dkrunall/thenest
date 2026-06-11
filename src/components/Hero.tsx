@@ -241,7 +241,7 @@ export default function Hero() {
                     className="text-nest-cream text-[10px] tracking-[0.2em] uppercase font-medium"
                     style={{ fontFamily: "'Inter', sans-serif" }}
                   >
-                    6:00 PM – 3:00 AM
+                    6:00 PM – 1:30 AM
                   </span>
                 </div>
               </motion.div>

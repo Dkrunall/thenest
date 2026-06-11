@@ -12,7 +12,7 @@ const stats = [
   { value: "2nd", label: "Floor Location", sub: "Grand Pavilion, Peninsula Grand" },
   { value: "4.5★", label: "Guest Rating", sub: "Swiggy & Zomato" },
   { value: "360°", label: "Skyline Views", sub: "Mumbai City Horizon" },
-  { value: "6PM", label: "Doors Open", sub: "Every night until 3:00 AM" },
+  { value: "6PM", label: "Doors Open", sub: "Every night until 1:30 AM" },
 ];
 
 export default function About() {

@@ -206,7 +206,7 @@ export default function Navbar() {
                       Ambient Clock
                     </span>
                     <p className="font-cormorant text-2xl font-light text-nest-cream/80 mt-1" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
-                      6:00 PM — 3:00 AM
+                      6:00 PM — 1:30 AM
                     </p>
                     <p className="text-[11px] text-nest-cream/40 font-light mt-0.5" style={{ fontFamily: "'Inter', sans-serif" }}>
                       Daily Hawaiian & Nikkei Experience

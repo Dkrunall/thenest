@@ -162,7 +162,7 @@ export default function Footer() {
                   <span>Ambient Hours</span>
                 </p>
                 <p className="text-xs" style={{ fontFamily: "'Inter', sans-serif" }}>
-                  Daily: 6:00 PM – 3:00 AM
+                  Daily: 6:00 PM – 1:30 AM
                 </p>
               </div>
             </div>

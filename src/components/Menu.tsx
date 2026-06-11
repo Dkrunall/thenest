@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 import Magnetic from "@/components/Magnetic";
 
 const platforms = [
@@ -46,23 +45,6 @@ const platforms = [
   },
 ];
 
-const inspirations = [
-  {
-    label: "Japanese Craft",
-    description: "Precision-driven technique, umami-forward flavours, and a reverence for the finest ingredients.",
-    image: "/food/DSC09339.jpg",
-  },
-  {
-    label: "Continental Soul",
-    description: "Rich, layered, and comforting — Continental classics reimagined for an elevated rooftop setting.",
-    image: "/food/DSC00887.jpg",
-  },
-  {
-    label: "Tiki Mixology",
-    description: "Bold tropical pours crafted with aged spirits, house-made syrups, and island flair at the bar.",
-    image: "/food/DSC09602.jpg",
-  },
-];
 
 export default function Menu() {
   return (
@@ -116,51 +98,6 @@ export default function Menu() {
               >
                 Our kitchen draws from two rich culinary worlds — the disciplined artistry of Japanese cooking and the hearty elegance of Continental cuisine — united by a shared belief that every bite should be memorable. Each dish is seasonal, considered, and made to complement an evening above the skyline.
               </motion.p>
-            </div>
-
-            {/* Inspiration Cards */}
-            <div className="grid md:grid-cols-3 gap-6 mb-20">
-              {inspirations.map((item, i) => (
-                <motion.div
-                  key={item.label}
-                  initial={{ opacity: 0, y: 40 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-40px" }}
-                  transition={{ duration: 0.8, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] }}
-                  className="group relative overflow-hidden rounded-3xl border border-nest-gold/10 hover:border-nest-gold/25 transition-all duration-500"
-                >
-                  {/* Image */}
-                  <div className="relative h-56 overflow-hidden">
-                    <Image
-                      src={item.image}
-                      alt={item.label}
-                      fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-nest-black/80 via-nest-black/20 to-transparent z-10" />
-                    <div className="absolute bottom-4 left-5 z-20">
-                      <span
-                        className="text-nest-gold text-[9px] tracking-[0.3em] uppercase font-semibold"
-                        style={{ fontFamily: "'Inter', sans-serif" }}
-                      >
-                        {item.label}
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Text */}
-                  <div className="glass-card px-6 py-5">
-                    <p
-                      className="text-nest-cream/65 text-xs sm:text-sm leading-relaxed font-light"
-                      style={{ fontFamily: "'Inter', sans-serif" }}
-                    >
-                      {item.description}
-                    </p>
-                  </div>
-
-                  <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-nest-gold/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                </motion.div>
-              ))}
             </div>
 
             {/* View Full Menu Divider */}

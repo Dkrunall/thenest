@@ -184,7 +184,7 @@ _Sent from thenestbywaikiki.com_`;
                         </svg>
                         <span>Timing</span>
                       </p>
-                      <p style={{ fontFamily: "'Inter', sans-serif" }}>Every Night: 6:00 PM – 3:00 AM</p>
+                      <p style={{ fontFamily: "'Inter', sans-serif" }}>Every Night: 6:00 PM – 1:30 AM</p>
                     </div>
 
                     <div>
