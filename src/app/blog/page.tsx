@@ -5,11 +5,29 @@ import Lenis from "lenis";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { motion } from "framer-motion";
+import Link from "next/link";
 import CustomCursor from "@/components/CustomCursor";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 gsap.registerPlugin(ScrollTrigger);
+
+const posts = [
+  {
+    slug: "best-rooftop-dining-experience-in-andheri",
+    title: "Best Rooftop Dining Experience in Andheri: Why The Nest at Waikiki Stands Out",
+    excerpt:
+      "Mumbai is a city that never slows down. When it comes to finding the perfect combination of great food, signature cocktails, stunning views, and a lively atmosphere, The Nest at Waikiki delivers an experience that goes far beyond dining.",
+    tags: ["Rooftop Dining", "Andheri East", "Cocktails", "Mumbai Nightlife"],
+  },
+  {
+    slug: "restaurants-in-andheri-east",
+    title: "Restaurants in Andheri East: Why The Nest at Waikiki is Redefining Dining & Nightlife",
+    excerpt:
+      "When searching for the best restaurants in Andheri East, diners today want more than just great food. The Nest at Waikiki brings together premium dining, innovative cocktails, tropical-inspired interiors, and energetic entertainment.",
+    tags: ["Restaurants", "Andheri East", "Nightlife", "Pan Asian", "Japanese"],
+  },
+];
 
 export default function BlogPage() {
   useEffect(() => {
@@ -17,10 +35,7 @@ export default function BlogPage() {
     lenis.on("scroll", ScrollTrigger.update);
     const tick = gsap.ticker.add((time) => lenis.raf(time * 1000));
     gsap.ticker.lagSmoothing(0);
-    return () => {
-      gsap.ticker.remove(tick);
-      lenis.destroy();
-    };
+    return () => { gsap.ticker.remove(tick); lenis.destroy(); };
   }, []);
 
   return (
@@ -28,148 +43,76 @@ export default function BlogPage() {
       <CustomCursor />
       <Navbar />
 
-      {/* Page Hero */}
+      {/* Hero */}
       <section className="relative pt-44 pb-16 px-6 overflow-hidden">
         <div className="absolute top-0 right-0 w-[40vw] h-[40vw] rounded-full bg-nest-gold/5 blur-3xl pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-[30vw] h-[30vw] rounded-full bg-nest-teal/5 blur-3xl pointer-events-none" />
-
         <div className="max-w-7xl mx-auto relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="flex items-center gap-3 mb-6"
-          >
+          <motion.div initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="flex items-center gap-3 mb-6">
             <span className="w-10 h-px bg-nest-gold" />
-            <span
-              className="text-nest-gold text-[10px] tracking-[0.4em] uppercase font-light"
-              style={{ fontFamily: "'Inter', sans-serif" }}
-            >
-              The Nest Journal
-            </span>
+            <span className="text-nest-gold text-[10px] tracking-[0.4em] uppercase font-light" style={{ fontFamily: "'Inter', sans-serif" }}>The Nest Journal</span>
           </motion.div>
-
           <motion.h1
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.0, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
+            initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.0, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
             className="font-cormorant font-light text-[clamp(3rem,8vw,6.5rem)] text-nest-cream leading-none mb-6"
             style={{ fontFamily: "'Cormorant Garamond', serif" }}
           >
-            Stories from <br />
-            <span className="text-gold-gradient italic">Above the Skyline</span>
+            Stories from <br /><span className="text-gold-gradient italic">Above the Skyline</span>
           </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.25 }}
-            className="text-nest-cream/60 text-sm sm:text-base max-w-xl font-light leading-relaxed"
-            style={{ fontFamily: "'Inter', sans-serif" }}
-          >
-            Cocktail recipes, behind-the-bar stories, seasonal menus, and curated reads — all from The Nest.
+          <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.25 }} className="text-nest-cream/60 text-sm sm:text-base max-w-xl font-light leading-relaxed" style={{ fontFamily: "'Inter', sans-serif" }}>
+            Guides, stories, and insider reads from Mumbai&rsquo;s premier rooftop bar and restaurant.
           </motion.p>
         </div>
       </section>
 
-      {/* Coming Soon Section */}
+      {/* Posts */}
       <section className="px-6 pb-32">
         <div className="max-w-7xl mx-auto border-x border-nest-gold/10 bg-nest-black">
-
-          {/* Coming Soon Card */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.0, ease: [0.22, 1, 0.36, 1], delay: 0.35 }}
-            className="relative glass-card rounded-3xl border border-nest-gold/20 overflow-hidden mx-6 mt-4"
-          >
-            <div className="absolute top-8 left-8 w-8 h-8 border-t border-l border-nest-gold/40" />
-            <div className="absolute top-8 right-8 w-8 h-8 border-t border-r border-nest-gold/40" />
-            <div className="absolute bottom-8 left-8 w-8 h-8 border-b border-l border-nest-gold/40" />
-            <div className="absolute bottom-8 right-8 w-8 h-8 border-b border-r border-nest-gold/40" />
-            <div className="absolute inset-5 border border-dashed border-nest-gold/8 rounded-2xl pointer-events-none" />
-            <div className="absolute top-0 right-0 w-[35vw] h-[35vw] rounded-full bg-nest-gold/5 blur-3xl pointer-events-none" />
-
-            <div className="flex flex-col items-center text-center px-8 py-24 sm:py-32 relative z-10">
-              <motion.div
-                animate={{ rotate: 360 }}
-                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                className="w-16 h-16 rounded-full border border-nest-gold/30 flex items-center justify-center mb-8"
+          <div className="p-6 flex flex-col gap-6">
+            {posts.map((post, i) => (
+              <motion.article
+                key={post.slug}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.3 + i * 0.12, ease: [0.22, 1, 0.36, 1] }}
+                className="group glass-card rounded-3xl border border-nest-gold/10 hover:border-nest-gold/30 hover:shadow-[0_20px_40px_rgba(81,9,9,0.06)] transition-all duration-500 overflow-hidden"
               >
-                <svg className="w-5 h-5 text-nest-gold" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 0L14.6 9.4L24 12L14.6 14.6L12 24L9.4 14.6L0 12L9.4 9.4L12 0Z" />
-                </svg>
-              </motion.div>
+                <div className="p-8 sm:p-12 flex flex-col lg:flex-row lg:items-center justify-between gap-8">
+                  <div className="flex-1">
+                    <div className="flex flex-wrap gap-2 mb-5">
+                      {post.tags.map((tag) => (
+                        <span key={tag} className="bg-nest-dark border border-nest-gold/15 text-nest-gold text-[9px] px-3 py-1 rounded-full tracking-widest uppercase font-medium" style={{ fontFamily: "'Inter', sans-serif" }}>
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                    <h2 className="font-cormorant font-light text-2xl sm:text-3xl lg:text-4xl text-nest-cream group-hover:text-nest-gold transition-colors duration-300 mb-4 leading-snug" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
+                      {post.title}
+                    </h2>
+                    <p className="text-nest-cream/55 text-sm leading-relaxed font-light max-w-2xl" style={{ fontFamily: "'Inter', sans-serif" }}>
+                      {post.excerpt}
+                    </p>
+                  </div>
+                  <div className="flex-shrink-0">
+                    <Link
+                      href={`/blog/${post.slug}`}
+                      className="inline-flex items-center gap-2 border border-nest-gold/30 hover:border-nest-gold hover:bg-nest-gold hover:text-white text-nest-gold text-[10px] tracking-[0.25em] uppercase font-semibold px-7 py-3.5 rounded-full transition-all duration-300 cursor-none"
+                      style={{ fontFamily: "'Inter', sans-serif" }}
+                    >
+                      Read Article <span className="transform group-hover:translate-x-1 transition-transform duration-300">→</span>
+                    </Link>
+                  </div>
+                </div>
+              </motion.article>
+            ))}
+          </div>
 
-              <p
-                className="text-nest-gold text-[10px] tracking-[0.5em] uppercase mb-5 font-semibold"
-                style={{ fontFamily: "'Inter', sans-serif" }}
-              >
-                Coming Soon
-              </p>
-
-              <h2
-                className="font-cormorant text-4xl sm:text-6xl font-light text-nest-cream mb-6 tracking-wide leading-tight"
-                style={{ fontFamily: "'Cormorant Garamond', serif" }}
-              >
-                The Journal <br />
-                <span className="text-gold-gradient italic">is Being Written</span>
-              </h2>
-
-              <p
-                className="text-nest-cream/55 text-sm sm:text-base max-w-lg mx-auto font-light leading-relaxed mb-12"
-                style={{ fontFamily: "'Inter', sans-serif" }}
-              >
-                We&rsquo;re preparing cocktail recipes, behind-the-bar features, event recaps, and seasonal reads.
-                The first edition drops soon — stay close.
-              </p>
-
-              <div className="flex flex-wrap justify-center gap-3 mb-14">
-                {["Cocktail Recipes", "Bar Stories", "Seasonal Menus", "Guest Features", "Event Recaps"].map((tag) => (
-                  <span
-                    key={tag}
-                    className="bg-nest-dark border border-nest-gold/15 text-nest-cream/50 text-[10px] px-4 py-1.5 rounded-full tracking-widest uppercase"
-                    style={{ fontFamily: "'Inter', sans-serif" }}
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-
-              {/* Newsletter inline */}
-              <div className="w-full max-w-sm">
-                <p
-                  className="text-nest-cream/40 text-[10px] tracking-[0.3em] uppercase mb-4"
-                  style={{ fontFamily: "'Inter', sans-serif" }}
-                >
-                  Notify me when it&rsquo;s live
-                </p>
-                <form
-                  onSubmit={(e) => {
-                    e.preventDefault();
-                    alert("You're on the list. We'll notify you when The Journal launches!");
-                  }}
-                  className="relative flex items-center border-b border-nest-gold/30 focus-within:border-nest-gold transition-colors duration-300 py-1"
-                >
-                  <input
-                    type="email"
-                    placeholder="your@email.com"
-                    required
-                    className="bg-transparent text-sm font-light text-nest-cream placeholder-nest-cream/35 focus:outline-none w-full pr-10 py-2"
-                    style={{ fontFamily: "'Inter', sans-serif" }}
-                  />
-                  <button
-                    type="submit"
-                    className="absolute right-0 text-nest-gold hover:text-nest-gold-light transition-colors cursor-none p-1"
-                    aria-label="Subscribe"
-                  >
-                    <span className="text-lg font-medium">→</span>
-                  </button>
-                </form>
-              </div>
-            </div>
-          </motion.div>
-
+          {/* More coming soon */}
+          <div className="mx-6 mb-6 p-8 text-center border border-dashed border-nest-gold/15 rounded-2xl">
+            <p className="text-nest-cream/35 text-[10px] tracking-[0.4em] uppercase" style={{ fontFamily: "'Inter', sans-serif" }}>
+              More stories coming soon
+            </p>
+          </div>
         </div>
       </section>
 

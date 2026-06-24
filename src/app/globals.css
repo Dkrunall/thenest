@@ -267,6 +267,52 @@ body {
   letter-spacing: 0.1em;
 }
 
+/* Blog article prose styles */
+.prose-nest {
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  color: rgba(252, 250, 247, 0.7);
+  line-height: 1.85;
+  font-size: 0.9375rem;
+}
+
+.prose-nest p {
+  margin-bottom: 1.5rem;
+}
+
+.prose-nest h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-size: clamp(1.6rem, 3.5vw, 2.25rem);
+  color: #FCFAF7;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.prose-nest ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 1.5rem;
+}
+
+.prose-nest ul li {
+  position: relative;
+  padding-left: 1.4rem;
+  margin-bottom: 0.55rem;
+  color: rgba(252, 250, 247, 0.65);
+  font-size: 0.9rem;
+}
+
+.prose-nest ul li::before {
+  content: '✦';
+  position: absolute;
+  left: 0;
+  top: 0.05em;
+  color: #510909;
+  font-size: 0.6rem;
+}
+
 .nest-select {
   background: rgba(33, 27, 21, 0.03);
   border: 1px solid rgba(81, 9, 9, 0.15);
