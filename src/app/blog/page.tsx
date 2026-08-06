@@ -22,10 +22,17 @@ const posts = [
   },
   {
     slug: "restaurants-in-andheri-east",
-    title: "Restaurants in Andheri East: Why The Nest at Waikiki is Redefining Dining & Nightlife",
+    title: "Restaurants in Andheri East: The Ultimate Guide to Exceptional Dining Experiences",
     excerpt:
-      "When searching for the best restaurants in Andheri East, diners today want more than just great food. The Nest at Waikiki brings together premium dining, innovative cocktails, tropical-inspired interiors, and energetic entertainment.",
-    tags: ["Restaurants", "Andheri East", "Nightlife", "Pan Asian", "Japanese"],
+      "When searching for the best restaurants in Andheri East, diners today want more than just great food. The Nest at Waikiki brings together Nikkei cuisine, handcrafted cocktails, and elegant hospitality for every occasion.",
+    tags: ["Restaurants", "Andheri East", "Fine Dining", "Nikkei Cuisine", "Cocktails"],
+  },
+  {
+    slug: "best-japanese-restaurant-in-andheri",
+    title: "Best Japanese Restaurant in Andheri: Discover the Art of Nikkei Dining at The Nest at Waikiki",
+    excerpt:
+      "For those searching for the best Japanese restaurant in Andheri, The Nest at Waikiki offers authentic Nikkei cuisine, premium sushi, and handcrafted cocktails in an elegant setting.",
+    tags: ["Japanese Cuisine", "Nikkei", "Sushi", "Andheri East", "Cocktails"],
   },
 ];
 
