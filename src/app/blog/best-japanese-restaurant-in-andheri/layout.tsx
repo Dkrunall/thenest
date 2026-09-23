@@ -23,6 +23,7 @@ export const metadata: Metadata = {
     url: "https://thenestatwaikiki.com/blog/best-japanese-restaurant-in-andheri",
     siteName: "The Nest at Waikiki",
     type: "article",
+    publishedTime: "2026-08-06",
   },
   alternates: { canonical: "https://thenestatwaikiki.com/blog/best-japanese-restaurant-in-andheri" },
 };

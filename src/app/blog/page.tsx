@@ -9,32 +9,10 @@ import Link from "next/link";
 import CustomCursor from "@/components/CustomCursor";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { posts, formatPostDate } from "@/lib/posts";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const posts = [
-  {
-    slug: "best-rooftop-dining-experience-in-andheri",
-    title: "Best Rooftop Dining Experience in Andheri: Why The Nest at Waikiki Stands Out",
-    excerpt:
-      "Mumbai is a city that never slows down. When it comes to finding the perfect combination of great food, signature cocktails, stunning views, and a lively atmosphere, The Nest at Waikiki delivers an experience that goes far beyond dining.",
-    tags: ["Rooftop Dining", "Andheri East", "Cocktails", "Mumbai Nightlife"],
-  },
-  {
-    slug: "restaurants-in-andheri-east",
-    title: "Restaurants in Andheri East: The Ultimate Guide to Exceptional Dining Experiences",
-    excerpt:
-      "When searching for the best restaurants in Andheri East, diners today want more than just great food. The Nest at Waikiki brings together Nikkei cuisine, handcrafted cocktails, and elegant hospitality for every occasion.",
-    tags: ["Restaurants", "Andheri East", "Fine Dining", "Nikkei Cuisine", "Cocktails"],
-  },
-  {
-    slug: "best-japanese-restaurant-in-andheri",
-    title: "Best Japanese Restaurant in Andheri: Discover the Art of Nikkei Dining at The Nest at Waikiki",
-    excerpt:
-      "For those searching for the best Japanese restaurant in Andheri, The Nest at Waikiki offers authentic Nikkei cuisine, premium sushi, and handcrafted cocktails in an elegant setting.",
-    tags: ["Japanese Cuisine", "Nikkei", "Sushi", "Andheri East", "Cocktails"],
-  },
-];
 
 export default function BlogPage() {
   useEffect(() => {
@@ -86,6 +64,9 @@ export default function BlogPage() {
               >
                 <div className="p-8 sm:p-12 flex flex-col lg:flex-row lg:items-center justify-between gap-8">
                   <div className="flex-1">
+                    <time dateTime={post.date} className="block text-nest-cream/40 text-[10px] tracking-[0.3em] uppercase mb-4" style={{ fontFamily: "'Inter', sans-serif" }}>
+                      {formatPostDate(post.date)}
+                    </time>
                     <div className="flex flex-wrap gap-2 mb-5">
                       {post.tags.map((tag) => (
                         <span key={tag} className="bg-nest-dark border border-nest-gold/15 text-nest-gold text-[9px] px-3 py-1 rounded-full tracking-widest uppercase font-medium" style={{ fontFamily: "'Inter', sans-serif" }}>
