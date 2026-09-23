@@ -9,8 +9,11 @@ import Link from "next/link";
 import CustomCursor from "@/components/CustomCursor";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { getPost, formatPostDate } from "@/lib/posts";
 
 gsap.registerPlugin(ScrollTrigger);
+
+const post = getPost("restaurants-in-andheri-east");
 
 const faqs = [
   {
@@ -84,6 +87,15 @@ export default function BlogPostAndheriEast() {
           >
             Restaurants in Andheri East: The Ultimate Guide to Exceptional Dining Experiences
           </motion.h1>
+
+          <motion.time
+            dateTime={post.date}
+            initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.7, delay: 0.25 }}
+            className="block text-nest-cream/40 text-[10px] tracking-[0.3em] uppercase font-light"
+            style={{ fontFamily: "'Inter', sans-serif" }}
+          >
+            {formatPostDate(post.date)}
+          </motion.time>
         </div>
       </section>
 
