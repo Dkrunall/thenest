@@ -65,7 +65,7 @@ export default function Menu() {
               <div className="w-12 h-[1px] bg-nest-gold/30 lg:w-[1px] lg:h-12" />
               <span
                 className="text-nest-cream/40 text-[9px] sm:text-[10px] tracking-[0.4em] uppercase whitespace-nowrap lg:transform lg:rotate-90 lg:origin-left lg:translate-x-[6px] lg:translate-y-[20px] font-medium"
-                style={{ fontFamily: "'Inter', sans-serif" }}
+                style={{ fontFamily: "var(--font-inter), sans-serif" }}
               >
                 THE MENU
               </span>
@@ -83,7 +83,7 @@ export default function Menu() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
                 className="font-cormorant font-light text-[clamp(2rem,5vw,3.75rem)] text-nest-cream mb-6"
-                style={{ fontFamily: "'Cormorant Garamond', serif" }}
+                style={{ fontFamily: "var(--font-cormorant), serif" }}
               >
                 Crafted with <br />
                 <span className="text-gold-gradient italic font-light">Intention & Soul</span>
@@ -94,7 +94,7 @@ export default function Menu() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: 0.15 }}
                 className="text-nest-cream/60 text-sm sm:text-base leading-relaxed font-light"
-                style={{ fontFamily: "'Inter', sans-serif" }}
+                style={{ fontFamily: "var(--font-inter), sans-serif" }}
               >
                 Our kitchen draws from two rich culinary worlds — the disciplined artistry of Japanese cooking and the hearty elegance of Continental cuisine — united by a shared belief that every bite should be memorable. Each dish is seasonal, considered, and made to complement an evening above the skyline.
               </motion.p>
@@ -111,7 +111,7 @@ export default function Menu() {
               <div className="h-px flex-1 bg-nest-gold/10" />
               <span
                 className="text-nest-cream/40 text-[9px] tracking-[0.4em] uppercase font-medium whitespace-nowrap"
-                style={{ fontFamily: "'Inter', sans-serif" }}
+                style={{ fontFamily: "var(--font-inter), sans-serif" }}
               >
                 View the Full Menu
               </span>
@@ -145,13 +145,13 @@ export default function Menu() {
                   <div>
                     <p
                       className="text-nest-cream text-sm font-semibold mb-0.5 group-hover:text-nest-gold transition-colors duration-300"
-                      style={{ fontFamily: "'Inter', sans-serif" }}
+                      style={{ fontFamily: "var(--font-inter), sans-serif" }}
                     >
                       {p.name}
                     </p>
                     <p
                       className="text-nest-cream/45 text-[10px] leading-snug font-light"
-                      style={{ fontFamily: "'Inter', sans-serif" }}
+                      style={{ fontFamily: "var(--font-inter), sans-serif" }}
                     >
                       {p.description}
                     </p>

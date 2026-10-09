@@ -74,7 +74,7 @@ export default function Experience() {
               <div className="w-12 h-[1px] bg-nest-gold/30 lg:w-[1px] lg:h-12" />
               <span 
                 className="text-nest-cream/40 text-[9px] sm:text-[10px] tracking-[0.4em] uppercase whitespace-nowrap lg:transform lg:rotate-90 lg:origin-left lg:translate-x-[6px] lg:translate-y-[20px] font-medium" 
-                style={{ fontFamily: "'Inter', sans-serif" }}
+                style={{ fontFamily: "var(--font-inter), sans-serif" }}
               >
                 THE EXPERIENCE
               </span>
@@ -91,7 +91,7 @@ export default function Experience() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
                 className="font-cormorant font-light text-[clamp(2rem,5vw,3.75rem)] text-nest-cream mb-6"
-                style={{ fontFamily: "'Cormorant Garamond', serif" }}
+                style={{ fontFamily: "var(--font-cormorant), serif" }}
               >
                 Three Ways to <br />
                 <span className="text-gold-gradient italic font-light">Nest Under the Stars</span>
@@ -102,7 +102,7 @@ export default function Experience() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: 0.15 }}
                 className="text-nest-cream/60 text-sm sm:text-base leading-relaxed font-light"
-                style={{ fontFamily: "'Inter', sans-serif" }}
+                style={{ fontFamily: "var(--font-inter), sans-serif" }}
               >
                 Select your vibe for the evening. Whether you come to savour artisanal Japanese-Continental plates, taste signature tiki mixology, or lose yourself in a DJ night under the open sky.
               </motion.p>
@@ -128,6 +128,7 @@ export default function Experience() {
                           src={pillar.image}
                           alt={pillar.title}
                           fill
+                          sizes="(min-width: 768px) 33vw, 100vw"
                           className="object-cover transition-transform duration-1000 ease-out group-hover:scale-110"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-[rgba(255,255,255,0.75)] via-transparent to-transparent z-10" />
@@ -143,19 +144,19 @@ export default function Experience() {
                     <div className="px-8 pt-4 pb-2">
                       <p
                         className="text-nest-gold text-[10px] tracking-[0.25em] uppercase mb-1.5 font-semibold"
-                        style={{ fontFamily: "'Inter', sans-serif" }}
+                        style={{ fontFamily: "var(--font-inter), sans-serif" }}
                       >
                         {pillar.subtitle}
                       </p>
                       <h3
                         className="font-cormorant text-3xl font-light text-nest-cream mb-4"
-                        style={{ fontFamily: "'Cormorant Garamond', serif" }}
+                        style={{ fontFamily: "var(--font-cormorant), serif" }}
                       >
                         {pillar.title}
                       </h3>
                       <p
                         className="text-nest-cream/60 text-xs sm:text-sm leading-relaxed font-light mb-6"
-                        style={{ fontFamily: "'Inter', sans-serif" }}
+                        style={{ fontFamily: "var(--font-inter), sans-serif" }}
                       >
                         {pillar.description}
                       </p>
@@ -170,7 +171,7 @@ export default function Experience() {
                         <li
                           key={h}
                           className="flex items-center gap-3 text-xs text-nest-cream/70 font-light"
-                          style={{ fontFamily: "'Inter', sans-serif" }}
+                          style={{ fontFamily: "var(--font-inter), sans-serif" }}
                         >
                           <svg className="w-2.5 h-2.5 text-nest-gold flex-shrink-0 transition-transform duration-500 group-hover:rotate-45" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M12 0L14.6 9.4L24 12L14.6 14.6L12 24L9.4 14.6L0 12L9.4 9.4L12 0Z" />

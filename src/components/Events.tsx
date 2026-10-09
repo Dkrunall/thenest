@@ -26,7 +26,7 @@ export default function Events() {
               <div className="w-12 h-[1px] bg-nest-gold/30 lg:w-[1px] lg:h-12" />
               <span
                 className="text-nest-cream/40 text-[9px] sm:text-[10px] tracking-[0.4em] uppercase whitespace-nowrap lg:transform lg:rotate-90 lg:origin-left lg:translate-x-[6px] lg:translate-y-[20px] font-medium"
-                style={{ fontFamily: "'Inter', sans-serif" }}
+                style={{ fontFamily: "var(--font-inter), sans-serif" }}
               >
                 THE GIGS
               </span>
@@ -43,7 +43,7 @@ export default function Events() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
                 className="font-cormorant font-light text-[clamp(2rem,5vw,3.75rem)] text-nest-cream mb-6"
-                style={{ fontFamily: "'Cormorant Garamond', serif" }}
+                style={{ fontFamily: "var(--font-cormorant), serif" }}
               >
                 Nights at <br />
                 <span className="text-gold-gradient italic font-light">The Nest</span>
@@ -54,7 +54,7 @@ export default function Events() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: 0.15 }}
                 className="text-nest-cream/60 text-sm sm:text-base leading-relaxed font-light"
-                style={{ fontFamily: "'Inter', sans-serif" }}
+                style={{ fontFamily: "var(--font-inter), sans-serif" }}
               >
                 Something extraordinary is being crafted. Our curated events calendar is almost ready.
               </motion.p>
@@ -92,14 +92,14 @@ export default function Events() {
 
                 <p
                   className="text-nest-gold text-[10px] tracking-[0.5em] uppercase mb-5 font-semibold"
-                  style={{ fontFamily: "'Inter', sans-serif" }}
+                  style={{ fontFamily: "var(--font-inter), sans-serif" }}
                 >
                   Coming Soon
                 </p>
 
                 <h3
                   className="font-cormorant text-4xl sm:text-6xl font-light text-nest-cream mb-6 tracking-wide leading-tight"
-                  style={{ fontFamily: "'Cormorant Garamond', serif" }}
+                  style={{ fontFamily: "var(--font-cormorant), serif" }}
                 >
                   The Calendar <br />
                   <span className="text-gold-gradient italic">is Being Set</span>
@@ -107,7 +107,7 @@ export default function Events() {
 
                 <p
                   className="text-nest-cream/55 text-sm sm:text-base max-w-md mx-auto font-light leading-relaxed mb-10"
-                  style={{ fontFamily: "'Inter', sans-serif" }}
+                  style={{ fontFamily: "var(--font-inter), sans-serif" }}
                 >
                   DJ nights, guest bar takeovers, golden hour gatherings, and more — all coming to The Nest soon. Stay tuned.
                 </p>
@@ -118,7 +118,7 @@ export default function Events() {
                     <span
                       key={tag}
                       className="bg-nest-dark border border-nest-gold/15 text-nest-cream/50 text-[10px] px-4 py-1.5 rounded-full tracking-widest uppercase"
-                      style={{ fontFamily: "'Inter', sans-serif" }}
+                      style={{ fontFamily: "var(--font-inter), sans-serif" }}
                     >
                       {tag}
                     </span>

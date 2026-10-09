@@ -42,7 +42,7 @@ export default function BookPage() {
             <span className="w-10 h-px bg-nest-gold" />
             <span
               className="text-nest-gold text-[10px] tracking-[0.4em] uppercase font-light"
-              style={{ fontFamily: "'Inter', sans-serif" }}
+              style={{ fontFamily: "var(--font-inter), sans-serif" }}
             >
               Reservations
             </span>
@@ -53,7 +53,7 @@ export default function BookPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.0, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
             className="font-cormorant font-light text-[clamp(3rem,8vw,6.5rem)] text-nest-cream leading-none mb-6"
-            style={{ fontFamily: "'Cormorant Garamond', serif" }}
+            style={{ fontFamily: "var(--font-cormorant), serif" }}
           >
             Secure Your <br />
             <span className="text-gold-gradient italic">Table in the Skies</span>
@@ -64,7 +64,7 @@ export default function BookPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.25 }}
             className="text-nest-cream/60 text-sm sm:text-base max-w-xl font-light leading-relaxed"
-            style={{ fontFamily: "'Inter', sans-serif" }}
+            style={{ fontFamily: "var(--font-inter), sans-serif" }}
           >
             Plan your evening at The Nest. Choose your seating, submit your details, and our team confirms via WhatsApp.
           </motion.p>

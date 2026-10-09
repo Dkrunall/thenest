@@ -25,8 +25,8 @@ const config: Config = {
         "nest-green-light": "#E6E1D3",
       },
       fontFamily: {
-        cormorant: ["Cormorant Garamond", "serif"],
-        inter: ["Inter", "sans-serif"],
+        cormorant: ["var(--font-cormorant)", "serif"],
+        inter: ["var(--font-inter)", "sans-serif"],
       },
       backgroundImage: {
         "gold-gradient": "linear-gradient(135deg, #510909 0%, #510909 100%)",

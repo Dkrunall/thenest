@@ -35,16 +35,16 @@ export default function BlogPage() {
         <div className="max-w-7xl mx-auto relative z-10">
           <motion.div initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="flex items-center gap-3 mb-6">
             <span className="w-10 h-px bg-nest-gold" />
-            <span className="text-nest-gold text-[10px] tracking-[0.4em] uppercase font-light" style={{ fontFamily: "'Inter', sans-serif" }}>The Nest Journal</span>
+            <span className="text-nest-gold text-[10px] tracking-[0.4em] uppercase font-light" style={{ fontFamily: "var(--font-inter), sans-serif" }}>The Nest Journal</span>
           </motion.div>
           <motion.h1
             initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.0, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
             className="font-cormorant font-light text-[clamp(3rem,8vw,6.5rem)] text-nest-cream leading-none mb-6"
-            style={{ fontFamily: "'Cormorant Garamond', serif" }}
+            style={{ fontFamily: "var(--font-cormorant), serif" }}
           >
             Stories from <br /><span className="text-gold-gradient italic">Above the Skyline</span>
           </motion.h1>
-          <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.25 }} className="text-nest-cream/60 text-sm sm:text-base max-w-xl font-light leading-relaxed" style={{ fontFamily: "'Inter', sans-serif" }}>
+          <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.25 }} className="text-nest-cream/60 text-sm sm:text-base max-w-xl font-light leading-relaxed" style={{ fontFamily: "var(--font-inter), sans-serif" }}>
             Guides, stories, and insider reads from Mumbai&rsquo;s premier rooftop bar and restaurant.
           </motion.p>
         </div>
@@ -64,20 +64,20 @@ export default function BlogPage() {
               >
                 <div className="p-8 sm:p-12 flex flex-col lg:flex-row lg:items-center justify-between gap-8">
                   <div className="flex-1">
-                    <time dateTime={post.date} className="block text-nest-cream/40 text-[10px] tracking-[0.3em] uppercase mb-4" style={{ fontFamily: "'Inter', sans-serif" }}>
+                    <time dateTime={post.date} className="block text-nest-cream/40 text-[10px] tracking-[0.3em] uppercase mb-4" style={{ fontFamily: "var(--font-inter), sans-serif" }}>
                       {formatPostDate(post.date)}
                     </time>
                     <div className="flex flex-wrap gap-2 mb-5">
                       {post.tags.map((tag) => (
-                        <span key={tag} className="bg-nest-dark border border-nest-gold/15 text-nest-gold text-[9px] px-3 py-1 rounded-full tracking-widest uppercase font-medium" style={{ fontFamily: "'Inter', sans-serif" }}>
+                        <span key={tag} className="bg-nest-dark border border-nest-gold/15 text-nest-gold text-[9px] px-3 py-1 rounded-full tracking-widest uppercase font-medium" style={{ fontFamily: "var(--font-inter), sans-serif" }}>
                           {tag}
                         </span>
                       ))}
                     </div>
-                    <h2 className="font-cormorant font-light text-2xl sm:text-3xl lg:text-4xl text-nest-cream group-hover:text-nest-gold transition-colors duration-300 mb-4 leading-snug" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
+                    <h2 className="font-cormorant font-light text-2xl sm:text-3xl lg:text-4xl text-nest-cream group-hover:text-nest-gold transition-colors duration-300 mb-4 leading-snug" style={{ fontFamily: "var(--font-cormorant), serif" }}>
                       {post.title}
                     </h2>
-                    <p className="text-nest-cream/55 text-sm leading-relaxed font-light max-w-2xl" style={{ fontFamily: "'Inter', sans-serif" }}>
+                    <p className="text-nest-cream/55 text-sm leading-relaxed font-light max-w-2xl" style={{ fontFamily: "var(--font-inter), sans-serif" }}>
                       {post.excerpt}
                     </p>
                   </div>
@@ -85,7 +85,7 @@ export default function BlogPage() {
                     <Link
                       href={`/blog/${post.slug}`}
                       className="inline-flex items-center gap-2 border border-nest-gold/30 hover:border-nest-gold hover:bg-nest-gold hover:text-white text-nest-gold text-[10px] tracking-[0.25em] uppercase font-semibold px-7 py-3.5 rounded-full transition-all duration-300 cursor-none"
-                      style={{ fontFamily: "'Inter', sans-serif" }}
+                      style={{ fontFamily: "var(--font-inter), sans-serif" }}
                     >
                       Read Article <span className="transform group-hover:translate-x-1 transition-transform duration-300">→</span>
                     </Link>
@@ -97,7 +97,7 @@ export default function BlogPage() {
 
           {/* More coming soon */}
           <div className="mx-6 mb-6 p-8 text-center border border-dashed border-nest-gold/15 rounded-2xl">
-            <p className="text-nest-cream/35 text-[10px] tracking-[0.4em] uppercase" style={{ fontFamily: "'Inter', sans-serif" }}>
+            <p className="text-nest-cream/35 text-[10px] tracking-[0.4em] uppercase" style={{ fontFamily: "var(--font-inter), sans-serif" }}>
               More stories coming soon
             </p>
           </div>

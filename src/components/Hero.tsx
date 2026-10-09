@@ -108,7 +108,7 @@ export default function Hero() {
           <div className="lg:col-span-7 flex flex-col justify-center text-left">
             {/* Subtitle Tagline */}
             <motion.div
-              initial={{ opacity: 0, y: 15 }}
+              initial={{ y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               className="flex items-center gap-3 mb-6"
@@ -116,7 +116,7 @@ export default function Hero() {
               <span className="w-10 h-px bg-nest-gold" />
               <span
                 className="text-nest-gold text-[10px] sm:text-xs tracking-[0.4em] uppercase font-light"
-                style={{ fontFamily: "'Inter', sans-serif" }}
+                style={{ fontFamily: "var(--font-inter), sans-serif" }}
               >
                 Mumbai&rsquo;s Finest Rooftop Destination
               </span>
@@ -125,11 +125,11 @@ export default function Hero() {
             {/* Giant Title */}
             <div className="mb-6">
               <motion.h1
-                initial={{ opacity: 0, y: 40 }}
+                initial={{ y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1.0, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
                 className="font-cormorant font-light text-[clamp(3.5rem,10vw,7.5rem)] leading-none text-nest-cream tracking-wide"
-                style={{ fontFamily: "'Cormorant Garamond', serif" }}
+                style={{ fontFamily: "var(--font-cormorant), serif" }}
               >
                 THE NEST <br />
                 <span className="text-gold-gradient italic font-light">AT WAIKIKI</span>
@@ -138,18 +138,18 @@ export default function Hero() {
 
             {/* Description */}
             <motion.p
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.35 }}
               className="text-nest-cream/60 text-sm sm:text-base max-w-xl leading-relaxed mb-10 font-light"
-              style={{ fontFamily: "'Inter', sans-serif" }}
+              style={{ fontFamily: "var(--font-inter), sans-serif" }}
             >
               Perched on the 2nd floor, Grand Pavilion, Peninsula Grand Hotel. A high-fashion tropical sanctuary where Hawaiian soul meets Mumbai&rsquo;s electric city skyline under the stars.
             </motion.p>
 
             {/* CTAs */}
             <motion.div
-              initial={{ opacity: 0, y: 25 }}
+              initial={{ y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.5 }}
               className="flex flex-row items-center gap-6"
@@ -177,8 +177,8 @@ export default function Hero() {
 
           {/* Right Image Content - Spans 5 columns on large screens */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95, x: 50 }}
-            animate={{ opacity: 1, scale: 1, x: 0 }}
+            initial={{ scale: 0.97 }}
+            animate={{ scale: 1 }}
             transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
             className="lg:col-span-5 relative w-full flex justify-center lg:justify-end"
           >
@@ -191,7 +191,7 @@ export default function Hero() {
                 style={{ x: springX, y: springY }}
                 className="relative w-full h-full overflow-hidden rounded-[28px] shadow-[0_20px_50px_rgba(36,30,21,0.06)] z-10"
               >
-                <AnimatePresence mode="wait">
+                <AnimatePresence mode="wait" initial={false}>
                   <motion.div
                     key={imgIndex}
                     initial={{ opacity: 0, scale: 1.05 }}
@@ -206,7 +206,8 @@ export default function Hero() {
                       fill
                       className="object-cover"
                       priority={imgIndex === 0}
-                      quality={90}
+                      quality={75}
+                      sizes="(min-width: 480px) 420px, 100vw"
                     />
                   </motion.div>
                 </AnimatePresence>
@@ -219,8 +220,11 @@ export default function Hero() {
                   {HERO_IMAGES.map((_, i) => (
                     <button
                       key={i}
+                      type="button"
+                      aria-label={`Show image ${i + 1}`}
+                      aria-current={i === imgIndex}
                       onClick={() => setImgIndex(i)}
-                      className={`w-1.5 h-1.5 rounded-full transition-all duration-300 cursor-none ${
+                      className={`relative w-1.5 h-1.5 rounded-full transition-all duration-300 cursor-none before:absolute before:-inset-3 before:content-[''] ${
                         i === imgIndex ? "bg-nest-gold w-4" : "bg-nest-cream/40"
                       }`}
                     />
@@ -239,7 +243,7 @@ export default function Hero() {
                   <div className="w-1.5 h-1.5 rounded-full bg-nest-teal animate-pulse" />
                   <span
                     className="text-nest-cream text-[10px] tracking-[0.2em] uppercase font-medium"
-                    style={{ fontFamily: "'Inter', sans-serif" }}
+                    style={{ fontFamily: "var(--font-inter), sans-serif" }}
                   >
                     6:00 PM – 1:30 AM
                   </span>
@@ -260,7 +264,7 @@ export default function Hero() {
       >
         <span
           className="text-nest-cream/40 text-[9px] tracking-[0.3em] uppercase font-light"
-          style={{ fontFamily: "'Inter', sans-serif" }}
+          style={{ fontFamily: "var(--font-inter), sans-serif" }}
         >
           Scroll Down
         </span>

@@ -58,7 +58,7 @@ export default function About() {
               <div className="w-12 h-[1px] bg-nest-gold/30 lg:w-[1px] lg:h-12" />
               <span 
                 className="text-nest-cream/40 text-[9px] sm:text-[10px] tracking-[0.4em] uppercase whitespace-nowrap lg:transform lg:rotate-90 lg:origin-left lg:translate-x-[6px] lg:translate-y-[20px] font-medium" 
-                style={{ fontFamily: "'Inter', sans-serif" }}
+                style={{ fontFamily: "var(--font-inter), sans-serif" }}
               >
                 OUR STORY
               </span>
@@ -77,7 +77,7 @@ export default function About() {
                   viewport={{ once: true, margin: "-100px" }}
                   transition={{ duration: 0.8 }}
                   className="font-cormorant font-light text-[clamp(2rem,5vw,3.75rem)] leading-tight text-nest-cream mb-8"
-                  style={{ fontFamily: "'Cormorant Garamond', serif" }}
+                  style={{ fontFamily: "var(--font-cormorant), serif" }}
                 >
                   Beneath the Skyline, <br />
                   <span className="text-gold-gradient italic font-light">Beyond the Ordinary</span>
@@ -89,7 +89,7 @@ export default function About() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.8, delay: 0.1 }}
                   className="text-nest-cream/60 leading-relaxed mb-6 text-sm sm:text-base font-light"
-                  style={{ fontFamily: "'Inter', sans-serif" }}
+                  style={{ fontFamily: "var(--font-inter), sans-serif" }}
                 >
                   The Nest at Waikiki is Mumbai&rsquo;s most breathtaking rooftop experience — a high-fashion tropical sanctuary that rises above the urban rush. We invite you to step away from the hustle of Andheri and immerse yourself in Hawaiian elegance.
                 </motion.p>
@@ -100,7 +100,7 @@ export default function About() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.8, delay: 0.2 }}
                   className="text-nest-cream/60 leading-relaxed mb-12 text-sm sm:text-base font-light"
-                  style={{ fontFamily: "'Inter', sans-serif" }}
+                  style={{ fontFamily: "var(--font-inter), sans-serif" }}
                 >
                   Perched on the 2nd floor, Grand Pavilion, Peninsula Grand Hotel, our signature egg-shaped bar, artisanal design elements, and panoramic skyline views create an atmosphere where every evening is a celebration of music, drinks, and fusion plates.
                 </motion.p>
@@ -120,14 +120,14 @@ export default function About() {
                       <div className="h-0.5 w-8 bg-nest-gold/30 mb-4 transition-all duration-300 group-hover/card:w-12 group-hover/card:bg-nest-gold" />
                       <p
                         className="text-gold-gradient font-cormorant text-3xl sm:text-4xl font-light mb-1"
-                        style={{ fontFamily: "'Cormorant Garamond', serif" }}
+                        style={{ fontFamily: "var(--font-cormorant), serif" }}
                       >
                         {stat.value}
                       </p>
-                      <p className="text-nest-cream text-xs tracking-wider uppercase mb-1 font-medium" style={{ fontFamily: "'Inter', sans-serif" }}>
+                      <p className="text-nest-cream text-xs tracking-wider uppercase mb-1 font-medium" style={{ fontFamily: "var(--font-inter), sans-serif" }}>
                         {stat.label}
                       </p>
-                      <p className="text-nest-cream/40 text-[10px] sm:text-xs" style={{ fontFamily: "'Inter', sans-serif" }}>
+                      <p className="text-nest-cream/40 text-[10px] sm:text-xs" style={{ fontFamily: "var(--font-inter), sans-serif" }}>
                         {stat.sub}
                       </p>
                     </motion.div>
@@ -148,6 +148,7 @@ export default function About() {
                         src="/interior/DSC01037.jpg"
                         alt="The Nest Twilight Scene"
                         fill
+                        sizes="(min-width: 1024px) 40vw, 100vw"
                         className="object-cover transition-transform duration-1000 ease-out group-hover:scale-108"
                       />
                     </div>
@@ -163,13 +164,13 @@ export default function About() {
                     transition={{ duration: 0.6, delay: 0.3 }}
                     className="absolute -bottom-6 -right-6 glass-card p-6 rounded-2xl z-20 shadow-[0_15px_30px_rgba(81,9,9,0.06)]"
                   >
-                    <p className="text-nest-gold text-[9px] tracking-widest uppercase mb-0.5" style={{ fontFamily: "'Inter', sans-serif" }}>
+                    <p className="text-nest-gold text-[9px] tracking-widest uppercase mb-0.5" style={{ fontFamily: "var(--font-inter), sans-serif" }}>
                       ESTD
                     </p>
-                    <p className="text-nest-cream font-cormorant text-4xl font-light" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
+                    <p className="text-nest-cream font-cormorant text-4xl font-light" style={{ fontFamily: "var(--font-cormorant), serif" }}>
                       2025
                     </p>
-                    <p className="text-nest-cream/45 text-[10px] tracking-wider mt-1" style={{ fontFamily: "'Inter', sans-serif" }}>
+                    <p className="text-nest-cream/45 text-[10px] tracking-wider mt-1" style={{ fontFamily: "var(--font-inter), sans-serif" }}>
                       MUMBAI
                     </p>
                   </motion.div>
@@ -208,7 +209,7 @@ export default function About() {
                   className={`text-[10px] tracking-[0.25em] uppercase whitespace-nowrap ${
                     item === "✦" ? "text-nest-gold" : "text-nest-cream/35"
                   }`}
-                  style={{ fontFamily: "'Inter', sans-serif" }}
+                  style={{ fontFamily: "var(--font-inter), sans-serif" }}
                 >
                   {item}
                 </span>

@@ -39,14 +39,14 @@ const FooterLink = ({ label, href }: { label: string; href: string }) => {
     <a
       href={href}
       onClick={handleClick}
-      className="group block py-1 cursor-none text-nest-cream/60 hover:text-nest-gold transition-colors duration-300 text-xs sm:text-sm font-light tracking-wide"
-      style={{ fontFamily: "'Inter', sans-serif" }}
+      className="group block py-3 cursor-none text-nest-cream/60 hover:text-nest-gold transition-colors duration-300 text-xs sm:text-sm font-light tracking-wide"
+      style={{ fontFamily: "var(--font-inter), sans-serif" }}
     >
       <span className="relative overflow-hidden block">
         <span className="block transform transition-transform duration-500 ease-[0.76,0,0.24,1] group-hover:-translate-y-full">
           {label}
         </span>
-        <span className="block absolute left-0 top-0 transform transition-transform duration-500 ease-[0.76,0,0.24,1] translate-y-full group-hover:translate-y-0 text-nest-gold italic font-medium">
+        <span aria-hidden="true" className="block absolute left-0 top-0 transform transition-transform duration-500 ease-[0.76,0,0.24,1] translate-y-full group-hover:translate-y-0 text-nest-gold italic font-medium">
           {label}
         </span>
       </span>
@@ -104,11 +104,11 @@ export default function Footer() {
             </Link>
             <p
               className="text-nest-cream/55 text-xs sm:text-sm leading-relaxed mb-6 font-light max-w-xs"
-              style={{ fontFamily: "'Inter', sans-serif" }}
+              style={{ fontFamily: "var(--font-inter), sans-serif" }}
             >
               Step away from the city chaos. Rise above Andheri East and discover a high-fashion garden sanctuary where Hawaiian spirit meets modern design.
             </p>
-            <div className="text-[11px] text-nest-cream/40 tracking-wider space-y-1 font-light" style={{ fontFamily: "'Inter', sans-serif" }}>
+            <div className="text-[11px] text-nest-cream/40 tracking-wider space-y-1 font-light" style={{ fontFamily: "var(--font-inter), sans-serif" }}>
               <p>19.1009° N, 72.8887° E</p>
               <p>2nd Floor, Grand Pavilion, Peninsula Grand</p>
             </div>
@@ -118,7 +118,7 @@ export default function Footer() {
           <div className="lg:col-span-2">
             <h3
               className="text-nest-gold text-[10px] tracking-[0.25em] uppercase mb-6 font-semibold"
-              style={{ fontFamily: "'Inter', sans-serif" }}
+              style={{ fontFamily: "var(--font-inter), sans-serif" }}
             >
               Navigate
             </h3>
@@ -135,33 +135,33 @@ export default function Footer() {
           <div className="lg:col-span-3">
             <h3
               className="text-nest-gold text-[10px] tracking-[0.25em] uppercase mb-6 font-semibold"
-              style={{ fontFamily: "'Inter', sans-serif" }}
+              style={{ fontFamily: "var(--font-inter), sans-serif" }}
             >
               Visit Coordinates
             </h3>
             <div className="space-y-6 text-xs sm:text-sm font-light text-nest-cream/60">
               <div>
-                <p className="text-nest-cream font-medium mb-1.5 flex items-center gap-2" style={{ fontFamily: "'Inter', sans-serif" }}>
+                <p className="text-nest-cream font-medium mb-1.5 flex items-center gap-2" style={{ fontFamily: "var(--font-inter), sans-serif" }}>
                   <svg className="w-4 h-4 text-nest-gold flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
                     <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
                   </svg>
                   <span>Address</span>
                 </p>
-                <p className="text-xs leading-relaxed" style={{ fontFamily: "'Inter', sans-serif" }}>
+                <p className="text-xs leading-relaxed" style={{ fontFamily: "var(--font-inter), sans-serif" }}>
                   Peninsula Grand Hotel, Sakinaka Junction,<br />
                   Andheri East, Mumbai, MH 400072
                 </p>
               </div>
               
               <div>
-                <p className="text-nest-cream font-medium mb-1.5 flex items-center gap-2" style={{ fontFamily: "'Inter', sans-serif" }}>
+                <p className="text-nest-cream font-medium mb-1.5 flex items-center gap-2" style={{ fontFamily: "var(--font-inter), sans-serif" }}>
                   <svg className="w-4 h-4 text-nest-gold flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                   </svg>
                   <span>Ambient Hours</span>
                 </p>
-                <p className="text-xs" style={{ fontFamily: "'Inter', sans-serif" }}>
+                <p className="text-xs" style={{ fontFamily: "var(--font-inter), sans-serif" }}>
                   Daily: 6:00 PM – 1:30 AM
                 </p>
               </div>
@@ -172,13 +172,13 @@ export default function Footer() {
           <div className="lg:col-span-3 flex flex-col items-start w-full">
             <h3
               className="text-nest-gold text-[10px] tracking-[0.25em] uppercase mb-6 font-semibold"
-              style={{ fontFamily: "'Inter', sans-serif" }}
+              style={{ fontFamily: "var(--font-inter), sans-serif" }}
             >
               Newsletter
             </h3>
             <p
               className="text-nest-cream/55 text-xs leading-relaxed mb-4 font-light"
-              style={{ fontFamily: "'Inter', sans-serif" }}
+              style={{ fontFamily: "var(--font-inter), sans-serif" }}
             >
               Join the guestlist. Subscribe for exclusive DJ lineups, events under the stars, and menu alerts.
             </p>
@@ -192,10 +192,12 @@ export default function Footer() {
               <div className="relative flex items-center border-b border-nest-gold/30 focus-within:border-nest-gold transition-colors duration-300 py-1">
                 <input
                   type="email"
+                  aria-label="Your email address"
+                  autoComplete="email"
                   placeholder="Your Email"
                   required
                   className="bg-transparent text-xs font-light text-nest-cream placeholder-nest-cream/40 focus:outline-none w-full pr-10 py-1"
-                  style={{ fontFamily: "'Inter', sans-serif" }}
+                  style={{ fontFamily: "var(--font-inter), sans-serif" }}
                 />
                 <button 
                   type="submit" 
@@ -214,7 +216,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-xs text-nest-cream/40 hover:text-nest-gold transition-colors duration-300 cursor-none"
-                  style={{ fontFamily: "'Inter', sans-serif" }}
+                  style={{ fontFamily: "var(--font-inter), sans-serif" }}
                 >
                   {s.name}
                 </a>
@@ -234,14 +236,14 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4 relative z-10">
         <p
           className="text-nest-cream/35 text-[10px] tracking-wider"
-          style={{ fontFamily: "'Inter', sans-serif" }}
+          style={{ fontFamily: "var(--font-inter), sans-serif" }}
         >
           © 2026 The Nest at Waikiki. All rights reserved.
         </p>
 
         <p
           className="text-nest-cream/35 text-[10px] tracking-wider"
-          style={{ fontFamily: "'Inter', sans-serif" }}
+          style={{ fontFamily: "var(--font-inter), sans-serif" }}
         >
           Hotel Rooftop Sanctuary · Sakinaka
         </p>
@@ -249,15 +251,15 @@ export default function Footer() {
 
       {/* Giant Awwwards Outline Text Background */}
       <div className="w-full text-center mt-12 overflow-hidden select-none pointer-events-none opacity-20 relative z-0">
-        <h1 
+        <div aria-hidden="true" 
           className="font-cormorant font-bold text-[clamp(3.5rem,14vw,14rem)] leading-none text-transparent tracking-[0.1em] uppercase"
           style={{ 
-            fontFamily: "'Cormorant Garamond', serif",
+            fontFamily: "var(--font-cormorant), serif",
             WebkitTextStroke: "1.2px #241E15",
           }}
         >
           THE NEST
-        </h1>
+        </div>
       </div>
 
       {/* Persistent Floating Action Buttons Stack */}
@@ -318,7 +320,6 @@ export default function Footer() {
             href="https://wa.me/918150000345?text=Hi%2C%20I'd%20like%20to%20make%20a%20reservation%20at%20The%20Nest%20at%20Waikiki!"
             target="_blank"
             rel="noopener noreferrer"
-            role="button"
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             whileHover={{ scale: 1.1 }}

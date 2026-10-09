@@ -65,7 +65,7 @@ export default function BlogPostAndheriEast() {
         <div className="absolute top-0 right-0 w-[40vw] h-[40vw] rounded-full bg-nest-gold/5 blur-3xl pointer-events-none" />
         <div className="max-w-4xl mx-auto relative z-10">
           {/* Breadcrumb */}
-          <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="flex items-center gap-2 mb-8 text-[10px] tracking-widest uppercase font-light" style={{ fontFamily: "'Inter', sans-serif" }}>
+          <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="flex items-center gap-2 mb-8 text-[10px] tracking-widest uppercase font-light" style={{ fontFamily: "var(--font-inter), sans-serif" }}>
             <Link href="/" className="text-nest-cream/40 hover:text-nest-gold transition-colors cursor-none">Home</Link>
             <span className="text-nest-cream/25">·</span>
             <Link href="/blog" className="text-nest-cream/40 hover:text-nest-gold transition-colors cursor-none">Journal</Link>
@@ -76,14 +76,14 @@ export default function BlogPostAndheriEast() {
           {/* Tags */}
           <motion.div initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.1 }} className="flex flex-wrap gap-2 mb-6">
             {["Restaurants", "Andheri East", "Fine Dining", "Nikkei Cuisine", "Cocktails"].map((tag) => (
-              <span key={tag} className="bg-nest-dark border border-nest-gold/15 text-nest-gold text-[9px] px-3 py-1 rounded-full tracking-widest uppercase font-medium" style={{ fontFamily: "'Inter', sans-serif" }}>{tag}</span>
+              <span key={tag} className="bg-nest-dark border border-nest-gold/15 text-nest-gold text-[9px] px-3 py-1 rounded-full tracking-widest uppercase font-medium" style={{ fontFamily: "var(--font-inter), sans-serif" }}>{tag}</span>
             ))}
           </motion.div>
 
           <motion.h1
             initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.0, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
             className="font-cormorant font-light text-[clamp(2.2rem,6vw,4.5rem)] text-nest-cream leading-tight mb-6"
-            style={{ fontFamily: "'Cormorant Garamond', serif" }}
+            style={{ fontFamily: "var(--font-cormorant), serif" }}
           >
             Restaurants in Andheri East: The Ultimate Guide to Exceptional Dining Experiences
           </motion.h1>
@@ -92,7 +92,7 @@ export default function BlogPostAndheriEast() {
             dateTime={post.date}
             initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.7, delay: 0.25 }}
             className="block text-nest-cream/40 text-[10px] tracking-[0.3em] uppercase font-light"
-            style={{ fontFamily: "'Inter', sans-serif" }}
+            style={{ fontFamily: "var(--font-inter), sans-serif" }}
           >
             {formatPostDate(post.date)}
           </motion.time>
@@ -216,17 +216,17 @@ export default function BlogPostAndheriEast() {
             <div className="absolute top-5 right-5 w-5 h-5 border-t border-r border-nest-gold/40" />
             <div className="absolute bottom-5 left-5 w-5 h-5 border-b border-l border-nest-gold/40" />
             <div className="absolute bottom-5 right-5 w-5 h-5 border-b border-r border-nest-gold/40" />
-            <p className="text-nest-gold text-[10px] tracking-[0.4em] uppercase mb-4 font-semibold" style={{ fontFamily: "'Inter', sans-serif" }}>Reserve Now</p>
-            <h3 className="font-cormorant text-3xl sm:text-4xl font-light text-nest-cream mb-4" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
+            <p className="text-nest-gold text-[10px] tracking-[0.4em] uppercase mb-4 font-semibold" style={{ fontFamily: "var(--font-inter), sans-serif" }}>Reserve Now</p>
+            <h3 className="font-cormorant text-3xl sm:text-4xl font-light text-nest-cream mb-4" style={{ fontFamily: "var(--font-cormorant), serif" }}>
               Discover Fine Dining <span className="text-gold-gradient italic">in Andheri East</span>
             </h3>
-            <p className="text-nest-cream/55 text-sm max-w-md mx-auto mb-8 font-light leading-relaxed" style={{ fontFamily: "'Inter', sans-serif" }}>
+            <p className="text-nest-cream/55 text-sm max-w-md mx-auto mb-8 font-light leading-relaxed" style={{ fontFamily: "var(--font-inter), sans-serif" }}>
               Reserve your table at The Nest at Waikiki and experience Nikkei cuisine, handcrafted cocktails, and elevated hospitality.
             </p>
             <Link
               href="/book"
               className="inline-block btn-gold rounded-full px-10 py-4 text-[10px] tracking-[0.25em] cursor-none"
-              style={{ fontFamily: "'Inter', sans-serif" }}
+              style={{ fontFamily: "var(--font-inter), sans-serif" }}
             >
               Book a Table
             </Link>
@@ -234,7 +234,7 @@ export default function BlogPostAndheriEast() {
 
           {/* Back link */}
           <div className="mt-10 text-center">
-            <Link href="/blog" className="text-nest-cream/40 hover:text-nest-gold text-xs tracking-widest uppercase transition-colors cursor-none" style={{ fontFamily: "'Inter', sans-serif" }}>
+            <Link href="/blog" className="text-nest-cream/40 hover:text-nest-gold text-xs tracking-widest uppercase transition-colors cursor-none" style={{ fontFamily: "var(--font-inter), sans-serif" }}>
               ← Back to Journal
             </Link>
           </div>

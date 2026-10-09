@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import dynamic from "next/dynamic";
 import Lenis from "lenis";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -9,12 +10,13 @@ import CustomCursor from "@/components/CustomCursor";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
-import Experience from "@/components/Experience";
-import Menu from "@/components/Menu";
-import Gallery from "@/components/Gallery";
-import Events from "@/components/Events";
-import Reservations from "@/components/Reservations";
-import Footer from "@/components/Footer";
+
+const Experience = dynamic(() => import("@/components/Experience"));
+const Menu = dynamic(() => import("@/components/Menu"));
+const Gallery = dynamic(() => import("@/components/Gallery"));
+const Events = dynamic(() => import("@/components/Events"));
+const Reservations = dynamic(() => import("@/components/Reservations"));
+const Footer = dynamic(() => import("@/components/Footer"));
 
 gsap.registerPlugin(ScrollTrigger);
 

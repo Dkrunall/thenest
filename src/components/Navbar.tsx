@@ -123,7 +123,7 @@ export default function Navbar() {
             <Magnetic>
               <button
                 onClick={() => handleNavClick("/book")}
-                className="hidden sm:block btn-gold rounded-full text-[9px] tracking-[0.2em] px-4 py-2 shadow-[0_4px_15px_rgba(81,9,9,0.15)] hover:shadow-[0_8px_25px_rgba(81,9,9,0.25)] transition-all duration-300"
+                className="hidden sm:block btn-gold rounded-full text-[9px] tracking-[0.2em] px-4 py-2 min-h-[44px] shadow-[0_4px_15px_rgba(81,9,9,0.15)] hover:shadow-[0_8px_25px_rgba(81,9,9,0.25)] transition-all duration-300"
               >
                 Reserve Table
               </button>
@@ -133,7 +133,9 @@ export default function Navbar() {
             <Magnetic>
               <button
                 onClick={() => setMenuOpen(!menuOpen)}
-                className={`px-3.5 py-2 rounded-full flex items-center gap-2 cursor-none transition-all duration-500 shadow-md ${
+                aria-expanded={menuOpen}
+                aria-label={menuOpen ? "Close menu" : "Open menu"}
+                className={`px-3.5 py-2 min-h-[44px] rounded-full flex items-center gap-2 cursor-none transition-all duration-500 shadow-md ${
                   menuOpen
                     ? "bg-nest-black text-nest-cream border border-nest-gold/20"
                     : scrolled
@@ -160,7 +162,7 @@ export default function Navbar() {
                 </div>
                 <span
                   className="text-[8px] tracking-[0.25em] uppercase font-semibold"
-                  style={{ fontFamily: "'Inter', sans-serif" }}
+                  style={{ fontFamily: "var(--font-inter), sans-serif" }}
                 >
                   {menuOpen ? "CLOSE" : "MENU"}
                 </span>
@@ -189,33 +191,33 @@ export default function Navbar() {
                 <div className="space-y-8">
                   {/* Geographic Coordinates */}
                   <div>
-                    <span className="text-[10px] tracking-[0.3em] uppercase text-nest-gold font-medium" style={{ fontFamily: "'Inter', sans-serif" }}>
+                    <span className="text-[10px] tracking-[0.3em] uppercase text-nest-gold font-medium" style={{ fontFamily: "var(--font-inter), sans-serif" }}>
                       Sky Coordinates
                     </span>
-                    <p className="font-cormorant text-2xl font-light text-nest-cream/80 mt-1" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
+                    <p className="font-cormorant text-2xl font-light text-nest-cream/80 mt-1" style={{ fontFamily: "var(--font-cormorant), serif" }}>
                       19.1009° N, 72.8887° E
                     </p>
-                    <p className="text-[11px] text-nest-cream/40 font-light mt-0.5" style={{ fontFamily: "'Inter', sans-serif" }}>
+                    <p className="text-[11px] text-nest-cream/40 font-light mt-0.5" style={{ fontFamily: "var(--font-inter), sans-serif" }}>
                       2nd Floor, Grand Pavilion, Peninsula Grand
                     </p>
                   </div>
 
                   {/* Operational Hours */}
                   <div>
-                    <span className="text-[10px] tracking-[0.3em] uppercase text-nest-gold font-medium" style={{ fontFamily: "'Inter', sans-serif" }}>
+                    <span className="text-[10px] tracking-[0.3em] uppercase text-nest-gold font-medium" style={{ fontFamily: "var(--font-inter), sans-serif" }}>
                       Ambient Clock
                     </span>
-                    <p className="font-cormorant text-2xl font-light text-nest-cream/80 mt-1" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
+                    <p className="font-cormorant text-2xl font-light text-nest-cream/80 mt-1" style={{ fontFamily: "var(--font-cormorant), serif" }}>
                       6:00 PM — 1:30 AM
                     </p>
-                    <p className="text-[11px] text-nest-cream/40 font-light mt-0.5" style={{ fontFamily: "'Inter', sans-serif" }}>
+                    <p className="text-[11px] text-nest-cream/40 font-light mt-0.5" style={{ fontFamily: "var(--font-inter), sans-serif" }}>
                       Daily Hawaiian & Nikkei Experience
                     </p>
                   </div>
 
                   {/* Mumbai dynamic Live clock */}
                   <div>
-                    <span className="text-[10px] tracking-[0.3em] uppercase text-nest-gold font-medium" style={{ fontFamily: "'Inter', sans-serif" }}>
+                    <span className="text-[10px] tracking-[0.3em] uppercase text-nest-gold font-medium" style={{ fontFamily: "var(--font-inter), sans-serif" }}>
                       Local Time (IST)
                     </span>
                     <div className="flex items-baseline gap-2 mt-1">
@@ -229,7 +231,7 @@ export default function Navbar() {
 
                 {/* Social links & Chat desk */}
                 <div className="space-y-4">
-                  <span className="text-[10px] tracking-[0.3em] uppercase text-nest-gold font-medium block" style={{ fontFamily: "'Inter', sans-serif" }}>
+                  <span className="text-[10px] tracking-[0.3em] uppercase text-nest-gold font-medium block" style={{ fontFamily: "var(--font-inter), sans-serif" }}>
                     Social Desk
                   </span>
                   <div className="flex flex-col gap-2">
@@ -238,7 +240,7 @@ export default function Navbar() {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-sm font-light text-nest-cream/60 hover:text-nest-gold transition-colors duration-300 cursor-none flex items-center gap-2"
-                      style={{ fontFamily: "'Inter', sans-serif" }}
+                      style={{ fontFamily: "var(--font-inter), sans-serif" }}
                     >
                       Instagram <span className="text-xs text-nest-gold">@thenestbywaikiki</span>
                     </a>
@@ -247,7 +249,7 @@ export default function Navbar() {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-sm font-light text-nest-cream/60 hover:text-nest-gold transition-colors duration-300 cursor-none flex items-center gap-2"
-                      style={{ fontFamily: "'Inter', sans-serif" }}
+                      style={{ fontFamily: "var(--font-inter), sans-serif" }}
                     >
                       WhatsApp Desk <span className="text-xs text-[#25D366]">Online</span>
                     </a>
@@ -257,7 +259,7 @@ export default function Navbar() {
 
               {/* Right Column: Massive Navigation Menu */}
               <div className="lg:col-span-8 flex flex-col justify-center h-full">
-                <span className="text-[10px] tracking-[0.4em] uppercase text-nest-gold font-semibold mb-6 block lg:hidden" style={{ fontFamily: "'Inter', sans-serif" }}>
+                <span className="text-[10px] tracking-[0.4em] uppercase text-nest-gold font-semibold mb-6 block lg:hidden" style={{ fontFamily: "var(--font-inter), sans-serif" }}>
                   Navigation
                 </span>
                 <nav className="flex flex-col gap-4 sm:gap-6">
@@ -272,7 +274,7 @@ export default function Navbar() {
                       <button
                         onClick={() => handleNavClick(link.href)}
                         className="w-full text-left font-cormorant font-light text-[clamp(2.5rem,7vw,5.5rem)] text-nest-cream transition-colors duration-300 flex items-baseline gap-6 cursor-none leading-[1.05]"
-                        style={{ fontFamily: "'Cormorant Garamond', serif" }}
+                        style={{ fontFamily: "var(--font-cormorant), serif" }}
                       >
                         <span className="text-xs sm:text-sm font-inter tracking-[0.2em] text-nest-gold/40 group-hover:text-nest-gold font-medium w-8">
                           0{i + 1}
@@ -298,7 +300,7 @@ export default function Navbar() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-xs tracking-widest uppercase font-semibold text-nest-gold"
-                    style={{ fontFamily: "'Inter', sans-serif" }}
+                    style={{ fontFamily: "var(--font-inter), sans-serif" }}
                   >
                     Instagram
                   </a>
@@ -307,7 +309,7 @@ export default function Navbar() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-xs tracking-widest uppercase font-semibold text-[#25D366]"
-                    style={{ fontFamily: "'Inter', sans-serif" }}
+                    style={{ fontFamily: "var(--font-inter), sans-serif" }}
                   >
                     WhatsApp
                   </a>
@@ -347,6 +349,7 @@ export default function Navbar() {
                       src={navLinks[hoveredIndex].image}
                       alt={navLinks[hoveredIndex].label}
                       fill
+                      sizes="50vw"
                       className="object-cover"
                     />
                   </motion.div>
