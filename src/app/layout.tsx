@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import Script from "next/script";
+import DeferredAnalytics from "@/components/DeferredAnalytics";
+import FontActivator from "@/components/FontActivator";
 import { Cormorant_Garamond, Inter } from "next/font/google";
 import "./globals.css";
 
@@ -8,6 +9,7 @@ const cormorant = Cormorant_Garamond({
   weight: ["300", "400", "500", "600", "700"],
   style: ["normal", "italic"],
   display: "swap",
+  preload: false,
   variable: "--font-cormorant",
 });
 
@@ -15,8 +17,17 @@ const inter = Inter({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600"],
   display: "swap",
+  preload: false,
   variable: "--font-inter",
 });
+
+// Until the page has loaded, text uses next/font's metric-matched fallback faces so the real
+// web fonts (~125 KB) don't compete with the first paint. FontActivator then lifts this override.
+const fallbackOf = (family: string) => family.split(",").slice(1).join(",").trim() || "sans-serif";
+const fontOverride = {
+  "--font-cormorant": `${fallbackOf(cormorant.style.fontFamily)}, serif`,
+  "--font-inter": `${fallbackOf(inter.style.fontFamily)}, sans-serif`,
+} as React.CSSProperties;
 
 export const metadata: Metadata = {
   title: "The Nest at Waikiki | Best Rooftop Bar & Restaurant in Andheri East, Mumbai",
@@ -151,7 +162,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`scroll-smooth ${cormorant.variable} ${inter.variable}`}>
+    <html
+      lang="en"
+      className={`scroll-smooth ${cormorant.variable} ${inter.variable}`}
+      style={fontOverride}
+    >
       <head>
         {/* Google Site Verification */}
         <meta name="google-site-verification" content="36uxD60BvoVlh1lJvBJdxhPJ5gzuM0AqQWf_sV9yiuI" />
@@ -161,7 +176,10 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="antialiased noise-overlay relative">
+      <body className="antialiased relative">
+        <noscript>
+          <style>{`.reveal{opacity:1!important;translate:none!important;scale:none!important}`}</style>
+        </noscript>
         {/* Google Tag Manager (noscript) */}
         <noscript>
           <iframe
@@ -173,16 +191,8 @@ export default function RootLayout({
         </noscript>
         {children}
 
-        {/* Google Tag Manager */}
-        <Script id="gtm" strategy="lazyOnload">
-          {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-MJ4HL9VX');`}
-        </Script>
-
-        {/* Google Analytics */}
-        <Script src="https://www.googletagmanager.com/gtag/js?id=G-9S726CD22M" strategy="lazyOnload" />
-        <Script id="gtag-init" strategy="lazyOnload">
-          {`window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-9S726CD22M');`}
-        </Script>
+        <FontActivator />
+        <DeferredAnalytics />
       </body>
     </html>
   );

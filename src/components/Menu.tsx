@@ -1,6 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
 import Magnetic from "@/components/Magnetic";
 
 const platforms = [
@@ -50,7 +47,7 @@ export default function Menu() {
   return (
     <section
       id="menu"
-      className="relative section-padding bg-nest-black overflow-hidden"
+      className="relative section-padding bg-nest-black overflow-hidden defer-render"
     >
       <div className="absolute top-1/3 left-0 w-96 h-96 rounded-full bg-nest-gold/5 blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 right-0 w-[30vw] h-[30vw] rounded-full bg-nest-teal/5 blur-3xl pointer-events-none" />
@@ -64,7 +61,7 @@ export default function Menu() {
               <span className="font-cormorant text-5xl sm:text-6xl font-light text-nest-gold leading-none">03</span>
               <div className="w-12 h-[1px] bg-nest-gold/30 lg:w-[1px] lg:h-12" />
               <span
-                className="text-nest-cream/40 text-[9px] sm:text-[10px] tracking-[0.4em] uppercase whitespace-nowrap lg:transform lg:rotate-90 lg:origin-left lg:translate-x-[6px] lg:translate-y-[20px] font-medium"
+                className="text-nest-cream/70 text-[9px] sm:text-[10px] tracking-[0.4em] uppercase whitespace-nowrap lg:transform lg:rotate-90 lg:origin-left lg:translate-x-[6px] lg:translate-y-[20px] font-medium"
                 style={{ fontFamily: "var(--font-inter), sans-serif" }}
               >
                 THE MENU
@@ -77,68 +74,31 @@ export default function Menu() {
 
             {/* Header */}
             <div className="max-w-xl mb-16">
-              <motion.h2
-                initial={{ opacity: 0, y: 25 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8 }}
-                className="font-cormorant font-light text-[clamp(2rem,5vw,3.75rem)] text-nest-cream mb-6"
-                style={{ fontFamily: "var(--font-cormorant), serif" }}
-              >
+              <h2 className="font-cormorant font-light text-[clamp(2rem,5vw,3.75rem)] text-nest-cream mb-6 reveal" style={{ "--ry": "25px", fontFamily: "var(--font-cormorant), serif" } as React.CSSProperties}>
                 Crafted with <br />
                 <span className="text-gold-gradient italic font-light">Intention & Soul</span>
-              </motion.h2>
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: 0.15 }}
-                className="text-nest-cream/60 text-sm sm:text-base leading-relaxed font-light"
-                style={{ fontFamily: "var(--font-inter), sans-serif" }}
-              >
+              </h2>
+              <p className="text-nest-cream/70 text-sm sm:text-base leading-relaxed font-light reveal" style={{ "--ry": "20px", "--rd": "0.15s", fontFamily: "var(--font-inter), sans-serif" } as React.CSSProperties}>
                 Our kitchen draws from two rich culinary worlds — the disciplined artistry of Japanese cooking and the hearty elegance of Continental cuisine — united by a shared belief that every bite should be memorable. Each dish is seasonal, considered, and made to complement an evening above the skyline.
-              </motion.p>
+              </p>
             </div>
 
             {/* View Full Menu Divider */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7 }}
-              className="flex items-center gap-4 mb-10"
-            >
+            <div className="flex items-center gap-4 mb-10 reveal" style={{ "--ry": "20px", "--rt": "0.7s" } as React.CSSProperties}>
               <div className="h-px flex-1 bg-nest-gold/10" />
               <span
-                className="text-nest-cream/40 text-[9px] tracking-[0.4em] uppercase font-medium whitespace-nowrap"
+                className="text-nest-cream/70 text-[9px] tracking-[0.4em] uppercase font-medium whitespace-nowrap"
                 style={{ fontFamily: "var(--font-inter), sans-serif" }}
               >
                 View the Full Menu
               </span>
               <div className="h-px flex-1 bg-nest-gold/10" />
-            </motion.div>
+            </div>
 
             {/* Platform Links */}
-            <motion.div
-              initial={{ opacity: 0, y: 25 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.1 }}
-              className="grid sm:grid-cols-3 gap-4 mb-16"
-            >
+            <div className="grid sm:grid-cols-3 gap-4 mb-16 reveal" style={{ "--ry": "25px", "--rd": "0.1s" } as React.CSSProperties}>
               {platforms.map((p, i) => (
-                <motion.a
-                  key={p.name}
-                  href={p.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 0.1 + i * 0.08 }}
-                  whileHover={{ y: -4 }}
-                  className="group flex items-center gap-4 glass-card rounded-2xl px-6 py-5 border border-nest-gold/10 hover:border-nest-gold/30 hover:shadow-[0_12px_30px_rgba(81,9,9,0.06)] transition-all duration-300 cursor-none"
-                >
+                <a key={p.name} href={p.href} target="_blank" rel="noopener noreferrer" className="group flex items-center gap-4 glass-card rounded-2xl px-6 py-5 border border-nest-gold/10 hover:border-nest-gold/30 hover:shadow-[0_12px_30px_rgba(81,9,9,0.06)] transition-all duration-300 cursor-none reveal hover:-translate-y-1" style={{ "--ry": "20px", "--rt": "0.6s", "--rd": `${0.1 + i * 0.08}s` } as React.CSSProperties}>
                   <div className={`w-10 h-10 rounded-full ${p.color} flex items-center justify-center flex-shrink-0 shadow-sm ${p.textColor}`}>
                     {p.icon}
                   </div>
@@ -150,35 +110,29 @@ export default function Menu() {
                       {p.name}
                     </p>
                     <p
-                      className="text-nest-cream/45 text-[10px] leading-snug font-light"
+                      className="text-nest-cream/70 text-[10px] leading-snug font-light"
                       style={{ fontFamily: "var(--font-inter), sans-serif" }}
                     >
                       {p.description}
                     </p>
                   </div>
-                  <span className="ml-auto text-nest-gold/40 group-hover:text-nest-gold group-hover:translate-x-1 transition-all duration-300 text-sm">→</span>
-                </motion.a>
+                  <span className="ml-auto text-nest-gold/70 group-hover:text-nest-gold group-hover:translate-x-1 transition-all duration-300 text-sm">→</span>
+                </a>
               ))}
-            </motion.div>
+            </div>
 
             {/* Book a Table CTA */}
-            <motion.div
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="text-center"
-            >
+            <div className="text-center reveal" style={{ "--ry": "15px", "--rt": "0.6s" } as React.CSSProperties}>
               <Magnetic>
-                <button
-                  onClick={() => document.querySelector("#reserve")?.scrollIntoView({ behavior: "smooth" })}
-                  className="btn-outline-gold px-8 py-4 cursor-none"
+                <a
+                  href="#reserve"
+                  className="btn-outline-gold inline-block px-8 py-4 cursor-none"
                   style={{ borderRadius: "100px" }}
                 >
                   <span>Book a Table</span>
-                </button>
+                </a>
               </Magnetic>
-            </motion.div>
+            </div>
 
           </div>
         </div>

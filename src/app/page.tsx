@@ -1,16 +1,10 @@
-"use client";
-
-import { useEffect } from "react";
 import dynamic from "next/dynamic";
-import Lenis from "lenis";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-import CustomCursor from "@/components/CustomCursor";
+import ClientEnhancements from "@/components/ClientEnhancements";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import About from "@/components/About";
 
+const About = dynamic(() => import("@/components/About"));
 const Experience = dynamic(() => import("@/components/Experience"));
 const Menu = dynamic(() => import("@/components/Menu"));
 const Gallery = dynamic(() => import("@/components/Gallery"));
@@ -18,37 +12,13 @@ const Events = dynamic(() => import("@/components/Events"));
 const Reservations = dynamic(() => import("@/components/Reservations"));
 const Footer = dynamic(() => import("@/components/Footer"));
 
-gsap.registerPlugin(ScrollTrigger);
-
 export default function Home() {
-  useEffect(() => {
-    // Initialize Lenis smooth scroll
-    const lenis = new Lenis({
-      lerp: 0.08,
-      smoothWheel: true,
-      touchMultiplier: 2,
-    });
-
-    // Integrate Lenis with GSAP ScrollTrigger
-    lenis.on("scroll", ScrollTrigger.update);
-
-    const gsapTicker = gsap.ticker.add((time) => {
-      lenis.raf(time * 1000);
-    });
-    gsap.ticker.lagSmoothing(0);
-
-    return () => {
-      gsap.ticker.remove(gsapTicker);
-      lenis.destroy();
-    };
-  }, []);
-
   return (
     <main>
-      <CustomCursor />
+      <ClientEnhancements />
       <Navbar />
       <Hero />
-      
+
       {/* Cohesive Content Page Frame */}
       <div className="max-w-7xl mx-auto border-x border-nest-gold/10 bg-nest-black relative">
         <About />

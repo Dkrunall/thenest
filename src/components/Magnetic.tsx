@@ -1,39 +1,14 @@
-"use client";
+import React from "react";
 
-import React, { useRef, useState } from "react";
-import { motion } from "framer-motion";
-
-export default function Magnetic({ children }: { children: React.ReactElement }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const [position, setPosition] = useState({ x: 0, y: 0 });
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (!ref.current) return;
-    const { clientX, clientY } = e;
-    const { left, top, width, height } = ref.current.getBoundingClientRect();
-    const centerX = left + width / 2;
-    const centerY = top + height / 2;
-    const distanceX = clientX - centerX;
-    const distanceY = clientY - centerY;
-    
-    // Magnetic pull is 35% of the distance from the center
-    setPosition({ x: distanceX * 0.35, y: distanceY * 0.35 });
-  };
-
-  const handleMouseLeave = () => {
-    setPosition({ x: 0, y: 0 });
-  };
-
+/**
+ * Marks its child as a "magnetic" element. The pull-towards-cursor effect is
+ * attached lazily (desktop pointers only) by ClientEnhancements, so this
+ * component ships no client JavaScript of its own.
+ */
+export default function Magnetic({ children }: { children: React.ReactNode }) {
   return (
-    <motion.div
-      ref={ref}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      animate={{ x: position.x, y: position.y }}
-      transition={{ type: "spring", stiffness: 150, damping: 15, mass: 0.1 }}
-      className="inline-block"
-    >
+    <div data-magnetic className="inline-block">
       {children}
-    </motion.div>
+    </div>
   );
 }

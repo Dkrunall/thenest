@@ -1,7 +1,4 @@
-"use client";
-
-import { motion } from "framer-motion";
-import Image from "next/image";
+import LazyImage from "@/components/LazyImage";
 
 const DineIcon = () => (
   <svg className="w-5 h-5 text-nest-gold" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
@@ -60,7 +57,7 @@ const pillars = [
 
 export default function Experience() {
   return (
-    <section id="experience" className="relative section-padding bg-nest-dark overflow-hidden">
+    <section id="experience" className="relative section-padding bg-nest-dark overflow-hidden defer-render">
       {/* Background ambient lighting */}
       <div className="absolute top-0 right-0 w-[40vw] h-[40vw] rounded-full bg-nest-teal/5 blur-3xl pointer-events-none" />
 
@@ -73,7 +70,7 @@ export default function Experience() {
               <span className="font-cormorant text-5xl sm:text-6xl font-light text-nest-gold leading-none">02</span>
               <div className="w-12 h-[1px] bg-nest-gold/30 lg:w-[1px] lg:h-12" />
               <span 
-                className="text-nest-cream/40 text-[9px] sm:text-[10px] tracking-[0.4em] uppercase whitespace-nowrap lg:transform lg:rotate-90 lg:origin-left lg:translate-x-[6px] lg:translate-y-[20px] font-medium" 
+                className="text-nest-cream/70 text-[9px] sm:text-[10px] tracking-[0.4em] uppercase whitespace-nowrap lg:transform lg:rotate-90 lg:origin-left lg:translate-x-[6px] lg:translate-y-[20px] font-medium" 
                 style={{ fontFamily: "var(--font-inter), sans-serif" }}
               >
                 THE EXPERIENCE
@@ -85,46 +82,24 @@ export default function Experience() {
           <div>
             {/* Header Description */}
             <div className="max-w-xl mb-16">
-              <motion.h2
-                initial={{ opacity: 0, y: 25 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8 }}
-                className="font-cormorant font-light text-[clamp(2rem,5vw,3.75rem)] text-nest-cream mb-6"
-                style={{ fontFamily: "var(--font-cormorant), serif" }}
-              >
+              <h2 className="font-cormorant font-light text-[clamp(2rem,5vw,3.75rem)] text-nest-cream mb-6 reveal" style={{ "--ry": "25px", fontFamily: "var(--font-cormorant), serif" } as React.CSSProperties}>
                 Three Ways to <br />
                 <span className="text-gold-gradient italic font-light">Nest Under the Stars</span>
-              </motion.h2>
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: 0.15 }}
-                className="text-nest-cream/60 text-sm sm:text-base leading-relaxed font-light"
-                style={{ fontFamily: "var(--font-inter), sans-serif" }}
-              >
+              </h2>
+              <p className="text-nest-cream/70 text-sm sm:text-base leading-relaxed font-light reveal" style={{ "--ry": "20px", "--rd": "0.15s", fontFamily: "var(--font-inter), sans-serif" } as React.CSSProperties}>
                 Select your vibe for the evening. Whether you come to savour artisanal Japanese-Continental plates, taste signature tiki mixology, or lose yourself in a DJ night under the open sky.
-              </motion.p>
+              </p>
             </div>
 
             {/* Cards Grid */}
             <div className="grid md:grid-cols-3 gap-8 items-stretch">
               {pillars.map((pillar, i) => (
-                <motion.div
-                  key={pillar.title}
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  transition={{ duration: 0.8, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] }}
-                  whileHover={{ y: -10 }}
-                  className="group relative flex flex-col justify-between overflow-hidden glass-card rounded-3xl border border-nest-gold/5 hover:border-nest-gold/25 hover:shadow-[0_20px_40px_rgba(81,9,9,0.06)] transition-all duration-500 cursor-none"
-                >
+                <div key={pillar.title} className="group relative flex flex-col justify-between overflow-hidden glass-card rounded-3xl border border-nest-gold/5 hover:border-nest-gold/25 hover:shadow-[0_20px_40px_rgba(81,9,9,0.06)] transition-all duration-500 cursor-none reveal hover:-translate-y-2.5" style={{ "--ry": "50px", "--rd": `${i * 0.12}s` } as React.CSSProperties}>
                   <div>
                     {/* Top Image Frame - Curved arch */}
                     <div className="relative h-64 overflow-hidden p-4">
                       <div className="relative w-full h-full arch-frame shadow-[inset_0_4px_12px_rgba(0,0,0,0.05)] overflow-hidden">
-                        <Image
+                        <LazyImage
                           src={pillar.image}
                           alt={pillar.title}
                           fill
@@ -155,7 +130,7 @@ export default function Experience() {
                         {pillar.title}
                       </h3>
                       <p
-                        className="text-nest-cream/60 text-xs sm:text-sm leading-relaxed font-light mb-6"
+                        className="text-nest-cream/70 text-xs sm:text-sm leading-relaxed font-light mb-6"
                         style={{ fontFamily: "var(--font-inter), sans-serif" }}
                       >
                         {pillar.description}
@@ -184,7 +159,7 @@ export default function Experience() {
 
                   {/* Border Highlight Effect on Hover */}
                   <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-nest-gold/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                </motion.div>
+                </div>
               ))}
             </div>
 

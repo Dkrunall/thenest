@@ -44,7 +44,7 @@ export default function BlogPage() {
           >
             Stories from <br /><span className="text-gold-gradient italic">Above the Skyline</span>
           </motion.h1>
-          <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.25 }} className="text-nest-cream/60 text-sm sm:text-base max-w-xl font-light leading-relaxed" style={{ fontFamily: "var(--font-inter), sans-serif" }}>
+          <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.25 }} className="text-nest-cream/70 text-sm sm:text-base max-w-xl font-light leading-relaxed" style={{ fontFamily: "var(--font-inter), sans-serif" }}>
             Guides, stories, and insider reads from Mumbai&rsquo;s premier rooftop bar and restaurant.
           </motion.p>
         </div>
@@ -64,7 +64,7 @@ export default function BlogPage() {
               >
                 <div className="p-8 sm:p-12 flex flex-col lg:flex-row lg:items-center justify-between gap-8">
                   <div className="flex-1">
-                    <time dateTime={post.date} className="block text-nest-cream/40 text-[10px] tracking-[0.3em] uppercase mb-4" style={{ fontFamily: "var(--font-inter), sans-serif" }}>
+                    <time dateTime={post.date} className="block text-nest-cream/70 text-[10px] tracking-[0.3em] uppercase mb-4" style={{ fontFamily: "var(--font-inter), sans-serif" }}>
                       {formatPostDate(post.date)}
                     </time>
                     <div className="flex flex-wrap gap-2 mb-5">
@@ -77,7 +77,7 @@ export default function BlogPage() {
                     <h2 className="font-cormorant font-light text-2xl sm:text-3xl lg:text-4xl text-nest-cream group-hover:text-nest-gold transition-colors duration-300 mb-4 leading-snug" style={{ fontFamily: "var(--font-cormorant), serif" }}>
                       {post.title}
                     </h2>
-                    <p className="text-nest-cream/55 text-sm leading-relaxed font-light max-w-2xl" style={{ fontFamily: "var(--font-inter), sans-serif" }}>
+                    <p className="text-nest-cream/70 text-sm leading-relaxed font-light max-w-2xl" style={{ fontFamily: "var(--font-inter), sans-serif" }}>
                       {post.excerpt}
                     </p>
                   </div>
@@ -97,7 +97,7 @@ export default function BlogPage() {
 
           {/* More coming soon */}
           <div className="mx-6 mb-6 p-8 text-center border border-dashed border-nest-gold/15 rounded-2xl">
-            <p className="text-nest-cream/35 text-[10px] tracking-[0.4em] uppercase" style={{ fontFamily: "var(--font-inter), sans-serif" }}>
+            <p className="text-nest-cream/70 text-[10px] tracking-[0.4em] uppercase" style={{ fontFamily: "var(--font-inter), sans-serif" }}>
               More stories coming soon
             </p>
           </div>

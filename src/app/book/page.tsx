@@ -63,7 +63,7 @@ export default function BookPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.25 }}
-            className="text-nest-cream/60 text-sm sm:text-base max-w-xl font-light leading-relaxed"
+            className="text-nest-cream/70 text-sm sm:text-base max-w-xl font-light leading-relaxed"
             style={{ fontFamily: "var(--font-inter), sans-serif" }}
           >
             Plan your evening at The Nest. Choose your seating, submit your details, and our team confirms via WhatsApp.

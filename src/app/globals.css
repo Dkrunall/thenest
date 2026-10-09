@@ -119,18 +119,6 @@ body {
   }
 }
 
-/* Noise texture overlay */
-.noise-overlay::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-  pointer-events: none;
-  z-index: 1;
-  opacity: 0.03;
-  mix-blend-mode: overlay;
-}
-
 /* Animated underline */
 .animated-underline {
   position: relative;
@@ -351,6 +339,25 @@ body {
   background: #510909;
   border-radius: 50%;
   opacity: 0;
+  will-change: transform, opacity;
+  animation: particle-float 7s ease-in-out infinite alternate;
+}
+
+@keyframes particle-float {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    opacity: var(--peak, 0.5);
+    transform: translate3d(var(--drift, 10px), var(--rise, -60px), 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .particle {
+    animation: none;
+  }
 }
 
 /* Glass card */
@@ -416,4 +423,122 @@ body {
   .cursor, .cursor-follower {
     display: none;
   }
+}
+
+/* Scroll-linked parallax (replaces GSAP ScrollTrigger) */
+@supports (animation-timeline: view()) {
+  .parallax-img {
+    animation: parallax-rise linear both;
+    animation-timeline: view();
+  }
+}
+
+@keyframes parallax-rise {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-10%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .parallax-img {
+    animation: none;
+  }
+}
+
+/* Scroll reveal (server-rendered, toggled by a tiny IntersectionObserver) */
+.reveal {
+  opacity: 0;
+  translate: var(--rx, 0px) var(--ry, 20px);
+  scale: var(--rs, 1);
+  transition-property: opacity, translate, scale, transform, border-color, box-shadow, background-color, color;
+  transition-duration: var(--rt, 0.8s), var(--rt, 0.8s), var(--rt, 0.8s), 0.3s, 0.5s, 0.5s, 0.5s, 0.5s;
+  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1), cubic-bezier(0.22, 1, 0.36, 1),
+    cubic-bezier(0.22, 1, 0.36, 1), ease, ease, ease, ease, ease;
+  transition-delay: var(--rd, 0s), var(--rd, 0s), var(--rd, 0s), 0s, 0s, 0s, 0s, 0s;
+}
+
+.reveal.in-view {
+  opacity: 1;
+  translate: 0 0;
+  scale: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    translate: none;
+    scale: none;
+    transition: none;
+  }
+}
+
+/* Skip layout/paint of off-screen sections until they approach the viewport */
+.defer-render {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 900px;
+}
+
+/* Hero entrance animations (CSS only, never hide content so LCP isn't delayed) */
+@keyframes hero-rise {
+  from {
+    translate: 0 var(--hy, 15px);
+  }
+}
+
+@keyframes hero-scale-in {
+  from {
+    scale: 0.97;
+  }
+}
+
+@keyframes hero-pop-in {
+  from {
+    opacity: 0;
+    scale: 0.8;
+  }
+}
+
+@keyframes scroll-dot {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(14px);
+    opacity: 0.4;
+  }
+}
+
+.hero-rise {
+  animation: hero-rise 0.8s cubic-bezier(0.22, 1, 0.36, 1) var(--hd, 0s) both;
+}
+
+.hero-frame {
+  animation: hero-scale-in 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.2s both;
+}
+
+.hero-pop {
+  animation: hero-pop-in 0.6s ease var(--hd, 0.9s) both;
+}
+
+.scroll-dot {
+  animation: scroll-dot 2s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-rise,
+  .hero-frame,
+  .hero-pop,
+  .scroll-dot {
+    animation: none;
+  }
+}
+
+/* Magnetic buttons (movement applied by ClientEnhancements) */
+[data-magnetic] {
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 }
