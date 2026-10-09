@@ -1,8 +1,11 @@
-import type { NextConfig } from "next";
+import { fileURLToPath } from "node:url";
+import path from "node:path";
 
+const rootDir = path.dirname(fileURLToPath(import.meta.url));
 const immutableAssets = "public, max-age=31536000, immutable";
 
-const nextConfig: NextConfig = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
     minimumCacheTTL: 31536000,
@@ -22,9 +25,9 @@ const nextConfig: NextConfig = {
       ]);
   },
   turbopack: {
-    root: __dirname,
+    root: rootDir,
   },
-  outputFileTracingRoot: __dirname,
+  outputFileTracingRoot: rootDir,
 };
 
 export default nextConfig;
